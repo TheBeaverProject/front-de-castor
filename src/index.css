@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /** Lemme preserve my eyes while I'm crying in css **/
+  background-color: gray;
 }
 
 code {
