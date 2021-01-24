@@ -1,3 +1,9 @@
+# Coding style
+.eslintcache
+
+# Vscode config
+.vscode
+
 # Logs
 logs
 *.log
