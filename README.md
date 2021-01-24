@@ -8,7 +8,7 @@ Partie front-end du "website" pour les iencli by francouille
   
   `npm install`  
   
-  `npm run start` when coding (REPL)  
+  `npm run start` when coding (REPL)
   
   `npm run build` when you're done and product is in production stage  
   
@@ -20,9 +20,10 @@ Partie front-end du "website" pour les iencli by francouille
     
       - Login control  
       
-    - Do a thicccccc footer with sponsor and shit  
+    - Do a thicccccc footer with social media link  
     
-
+    - News which goes fullscreen on click (don't ask me why, I was asked for this specification)
+    
   Views:  
   
     - Home (with news)  
@@ -32,5 +33,11 @@ Partie front-end du "website" pour les iencli by francouille
     - Un bail qui sommes-nous ? (hmm réflexion)  
     
     - $$ SUPPORT US $$  
+    
+    - Dashboard for updating news  
+    
+    - Developper path  
+    
+    - Download page  
     
 
