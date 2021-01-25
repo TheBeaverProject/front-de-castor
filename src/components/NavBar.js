@@ -1,6 +1,7 @@
 import React from "react";
 
-import './NavBar.css'
+import LoginControl from "./LoginControl";
+import "./NavBar.css";
 
 class NavBar extends React.Component {
   // Fetch session info for login control ?
@@ -24,6 +25,7 @@ class NavBar extends React.Component {
             <a href="#Support">Support us</a>
           </li>
         </ul>
+        <LoginControl />
       </nav>
     );
   }
