@@ -1,34 +1,26 @@
 import React from "react";
-
 import LoginControl from "./LoginControl";
-import "./NavBar.css";
 
-class NavBar extends React.Component {
-  // Fetch session info for login control ?
-  // Why the f should I do it here and not directly
-  // in the appropriate component ? :thonk:
-  // TODO: Maybe remove that shit ?
-  componentDidMount() {}
-
-  render() {
-    // TODO: Add login control on left side
-    return (
-      <nav>
-        <ul>
-          <li>
-            <a href="#Home">Home</a>
-          </li>
-          <li>
-            <a href="#Contact">Contact</a>
-          </li>
-          <li>
-            <a href="#Support">Support us</a>
-          </li>
-        </ul>
-        <LoginControl />
-      </nav>
-    );
-  }
-}
+const NavBar = () => {
+  return (
+    <nav>
+      <ul>
+        <li>
+          <a href="#home">Home</a>
+        </li>
+        <li>
+          <a href="#news">News</a>
+        </li>
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
+        <li>
+          <a href="#support">Support us</a>
+        </li>
+      </ul>
+      <LoginControl />
+    </nav>
+  );
+};
 
 export default NavBar;
