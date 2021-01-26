@@ -38,7 +38,7 @@ const Home = () => {
         <div className="main-content">
           {news.map((elem) => {
             return (
-              <article id={elem.id}>
+              <article key={elem.id}>
                 <h2>
                   {elem.date} {elem.title}
                 </h2>

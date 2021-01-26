@@ -56,7 +56,7 @@ const News = () => {
              */
             news.map((elem) => {
               return (
-                <article id={elem.id}>
+                <article key={elem.id}>
                   <h2>{elem.title}</h2>
                   <h3>{elem.author}</h3>
                   <h4>{elem.date}</h4>
