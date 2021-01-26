@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Footer from "../components/Footer";
+
+import NavBar from "../components/NavBar";
 
 const Home = () => {
   const [news, setNews] = useState([]);
@@ -25,27 +28,29 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <>
+      <NavBar />
       <header>
         <h1>Building the Beaver</h1>
-        <div className="wrapper">
-          <div className="left-side"></div>
-          <div className="main-content">
-            {news.map((elem) => {
-              return (
-                <article id={elem.id}>
-                  <h2>
-                    {elem.date} {elem.title}
-                  </h2>
-                  <h3>{elem.author}</h3>
-                </article>
-              );
-            })}
-          </div>
-          <div className="right-side"></div>
-        </div>
       </header>
-    </div>
+      <div className="wrapper">
+        <div className="left-side"></div>
+        <div className="main-content">
+          {news.map((elem) => {
+            return (
+              <article id={elem.id}>
+                <h2>
+                  {elem.date} {elem.title}
+                </h2>
+                <h3>{elem.author}</h3>
+              </article>
+            );
+          })}
+        </div>
+        <div className="right-side"></div>
+      </div>
+      <Footer />
+    </>
   );
 };
 

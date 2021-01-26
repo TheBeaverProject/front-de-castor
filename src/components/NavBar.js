@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import LoginControl from "./LoginControl";
 
 const NavBar = () => {
@@ -6,16 +7,16 @@ const NavBar = () => {
     <nav>
       <ul>
         <li>
-          <a href="#home">Home</a>
+          <Link to="/home">Home</Link>
         </li>
         <li>
-          <a href="#news">News</a>
+          <Link to="/news">News</Link>
         </li>
         <li>
-          <a href="#contact">Contact</a>
+          <Link to="/contact">Contact</Link>
         </li>
         <li>
-          <a href="#support">Support us</a>
+          <Link to="/support">Support us</Link>
         </li>
       </ul>
       <LoginControl />
