@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 const LoginControl = () => {
   // By default we consider the user is not logged in
   // (the opposite is kinda weird right ?)
+  // eslint-disable-next-line no-unused-vars
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
