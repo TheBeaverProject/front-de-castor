@@ -6,16 +6,7 @@ const LoginControl = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    /**
-     * Check if user is logged in
-     * From beaver api: /auth/check
-     * @returns valid: bool
-     */
-    fetch("http://151.80.152.11:8080/auth/check")
-      .then((res) => setIsLoggedIn(res.valid))
-      // Token verification failed
-      // TODO: Kill the backend dev
-      .catch((err) => console.error(err));
+   // TODO: manage user token from storage 
   });
 
   if (isLoggedIn) {
