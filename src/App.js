@@ -1,21 +1,18 @@
 import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
-import { createBrowserHistory } from "history";
 
 import Home from "./views/Home";
-
-const history = createBrowserHistory();
+import Contact from "./views/Contact";
+import News from "./views/News"
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter history={history}>
+      <BrowserRouter>
         <Switch>
-          <Route path="/" component={Home}>
-            <Home />
-          </Route>
-          <Route path="/contact" component={Home}></Route>
-          <Route path="/news"></Route>
-          <Route path="/support"></Route>
+          <Route path="/" exact component={Home} />
+          <Route path="/contact" exact component={Contact} />
+          <Route path="/news" exact component={News} />
+          <Route path="/support" />
           <Redirect from="*" to="/" />
         </Switch>
       </BrowserRouter>
