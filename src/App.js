@@ -1,18 +1,20 @@
-import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
+import { Switch, BrowserRouter, Redirect } from "react-router-dom";
 
 import Home from "./views/Home";
 import Contact from "./views/Contact";
 import News from "./views/News"
+import DefaultLayout from "./layouts/DefaultLayout";
+import AppRoute from "./utils/AppRoute";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/contact" exact component={Contact} />
-          <Route path="/news" exact component={News} />
-          <Route path="/support" />
+          <AppRoute path="/" exact component={Home} layout={DefaultLayout}/>
+          <AppRoute path="/contact" exact component={Contact} layout={DefaultLayout}/>
+          <AppRoute path="/news" exact component={News} layout={DefaultLayout}/>
+          <AppRoute path="/support" />
           <Redirect from="*" to="/" />
         </Switch>
       </BrowserRouter>

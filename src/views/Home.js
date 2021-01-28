@@ -34,7 +34,7 @@ const Home = () => {
         <h1>Building the Beaver</h1>
       </header>
       <div className="wrapper">
-        <div className="left-side"></div>
+        <div className="left-side"/>
         <div className="main-content">
           {news.map((elem) => {
             return (
@@ -47,7 +47,7 @@ const Home = () => {
             );
           })}
         </div>
-        <div className="right-side"></div>
+        <div className="right-side"/>
       </div>
       <Footer />
     </>

@@ -4,6 +4,9 @@
 # Vscode config
 .vscode
 
+#Intellij Config
+.idea/
+
 # Logs
 logs
 *.log
