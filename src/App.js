@@ -1,5 +1,7 @@
 import { Switch, BrowserRouter, Redirect } from "react-router-dom";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Home from "./views/Home";
 import Contact from "./views/Contact";
 import News from "./views/News"
