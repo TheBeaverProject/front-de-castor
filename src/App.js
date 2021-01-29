@@ -7,6 +7,7 @@ import Contact from "./views/Contact";
 import News from "./views/News"
 import DefaultLayout from "./layouts/DefaultLayout";
 import AppRoute from "./utils/AppRoute";
+import Page404 from "./views/404"
 
 function App() {
   return (
@@ -16,8 +17,8 @@ function App() {
           <AppRoute path="/" exact component={Home} layout={DefaultLayout}/>
           <AppRoute path="/contact" exact component={Contact} layout={DefaultLayout}/>
           <AppRoute path="/news" exact component={News} layout={DefaultLayout}/>
-          <AppRoute path="/support" />
-          <Redirect from="*" to="/" />
+          <AppRoute path="/404" exact component={Page404} layout={DefaultLayout}/>
+          <Redirect from="*" to="/404" />
         </Switch>
       </BrowserRouter>
     </div>
