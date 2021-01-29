@@ -11,12 +11,12 @@ const Footer = () => {
             <Nav>
                 <Navbar.Text>
                     Made with <FontAwesomeIcon icon={faHeart} style={{color: "red"}}/> by <a
-                    href="https://github.com/TheBeaverProject/">The Beaver Project</a>
+                    href="https://github.com/TheBeaverProject/">The Beaver Project</a> © 2021
                 </Navbar.Text>
             </Nav>
             <Navbar.Collapse className="justify-content-end">
                 <Nav.Link href="https://twitter.com"><FontAwesomeIcon icon={faTwitter}/></Nav.Link>
-                <Nav.Link href="https://twitter.com"><FontAwesomeIcon icon={faInstagram}/></Nav.Link>
+                <Nav.Link href="https://instagram.com"><FontAwesomeIcon icon={faInstagram}/></Nav.Link>
             </Navbar.Collapse>
         </Navbar>
     )
