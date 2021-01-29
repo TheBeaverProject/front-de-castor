@@ -1,20 +1,20 @@
 import React from "react";
+import {Nav, Navbar, NavDropdown} from "react-bootstrap";
 
 const Footer = () => {
     return (
-        <footer>
-            <ul>
-                <li>
-                    <a href="#twitter">Twitter logo here</a>
-                </li>
-                <li>
-                    <a href="#github">Github logo here</a>
-                </li>
-                <li>
-                    <a href="#instagram">Instagram ? logo here</a>
-                </li>
-            </ul>
-        </footer>
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{position: "relative", bottom: 0}}>
+            <Nav className="mr-auto">
+                <Nav.Link href="#features">Features</Nav.Link>
+                <Nav.Link href="#pricing">Pricing</Nav.Link>
+            </Nav>
+            <Nav>
+                <Nav.Link href="#deets">More deets</Nav.Link>
+                <Nav.Link eventKey={2} href="#memes">
+                    Dank memes
+                </Nav.Link>
+            </Nav>
+        </Navbar>
     )
 };
 

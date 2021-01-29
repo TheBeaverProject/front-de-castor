@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import Footer from "../components/Footer";
 
 import NavBar from "../components/NavBar";
-import {Container, Row} from "react-bootstrap";
+import {Button, Container, Jumbotron, Row} from "react-bootstrap";
 
 const Home = () => {
     const [news, setNews] = useState([]);
@@ -30,20 +30,16 @@ const Home = () => {
 
     return (
         <>
-            <Container>
-                <Row>
-                    {news.map((elem) => {
-                        return (
-                            <article key={elem.id}>
-                                <h2>
-                                    {elem.date} {elem.title}
-                                </h2>
-                                <h3>{elem.author}</h3>
-                            </article>
-                        );
-                    })}
-                </Row>
-            </Container>
+            <Jumbotron className="flex-fill">
+                <h1>Hello, world!</h1>
+                <p>
+                    This is a simple hero unit, a simple jumbotron-style component for calling
+                    extra attention to featured content or information.
+                </p>
+                <p>
+                    <Button variant="primary">Learn more</Button>
+                </p>
+            </Jumbotron>
         </>
     );
 };

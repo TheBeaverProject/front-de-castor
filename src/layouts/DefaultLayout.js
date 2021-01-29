@@ -3,13 +3,13 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const LayoutDefault = ({children}) => (
-    <>
-        <Header navPosition="right" className="reveal-from-bottom"/>
-        <main className="site-content">
+    <div style={{minHeight: "100vh", display: "flex", flexDirection: "column"}}>
+        <div style={{flex: 1}}>
+            <Header navPosition="right" className="reveal-from-bottom"/>
             {children}
-        </main>
+        </div>
         <Footer/>
-    </>
+    </div>
 );
 
 export default LayoutDefault;
