@@ -19,7 +19,7 @@ const Header = () => {
                     <Nav.Link as={Link} to="/news">News</Nav.Link>
                     <Nav.Link as={Link} to="/support">Support Us!</Nav.Link>
                 </Nav>
-                <ButtonToolbar inline>
+                <ButtonToolbar>
                     <ButtonGroup className="mr-4">
                         <Button variant="primary" onClick={() => history.push("/register")}>Register</Button>
                     </ButtonGroup>

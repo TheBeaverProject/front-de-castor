@@ -1,7 +1,8 @@
 //React components
 import {BrowserRouter, Redirect, Switch} from "react-router-dom";
-import firebase from "firebase/app";
-import "firebase/auth";
+import firebase from 'firebase/app';
+import 'firebase/firestore'
+
 import {FirebaseAuthProvider} from "@react-firebase/auth";
 import {firebaseConfig} from "./utils/FirebaseConfig";
 import {FirestoreProvider} from "@react-firebase/firestore";
@@ -22,6 +23,8 @@ import Page404 from "./views/404"
 import Register from "./views/Register";
 import Login from "./views/Login";
 
+require('firebase/auth')
+require('firebase/firestore')
 
 function App() {
     return (

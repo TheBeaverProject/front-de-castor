@@ -1,9 +1,9 @@
 import {Button, Col, Container, Form, FormGroup, InputGroup, Row} from "react-bootstrap";
-import {useHistory} from "react-router-dom";
+//import {useHistory} from "react-router-dom";
 
 const Login = () => {
 
-    const history = useHistory();
+    //const history = useHistory();
 
     return (
         <>
@@ -37,9 +37,9 @@ const Login = () => {
                                 </FormGroup>
                             </Form.Row>
                             <Form.Row className="justify-content-end">
-                                <a href="" onClick={() => history.push("/reset_password")}>
+                                <p>
                                     Forgot password ?
-                                </a>
+                                </p>
                             </Form.Row>
                             <Form.Row className="justify-content-center">
                                 <Button variant="primary" type="submit">

@@ -3,9 +3,10 @@ import Datetime from 'react-datetime';
 
 const Register = () => {
 
+    /*
     function verifyForm() {
         return true;
-    }
+    }*/
 
     return (
         <div className="center-items">
