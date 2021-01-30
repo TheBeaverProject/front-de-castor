@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, Col, Container, Image, Row} from "react-bootstrap";
+import {Container, Row} from "react-bootstrap";
 import ContactCard from "../components/ContactCard";
 
 const Contact = () => {

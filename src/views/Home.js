@@ -1,8 +1,5 @@
-import React, {useState, useEffect} from "react";
-import Footer from "../components/Footer";
-
-import NavBar from "../components/NavBar";
-import {Button, Container, Jumbotron, Row} from "react-bootstrap";
+import React from "react";
+import {Button, Jumbotron} from "react-bootstrap";
 
 const Home = () => {
     return (

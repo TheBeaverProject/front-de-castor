@@ -1,11 +1,9 @@
 import React from "react";
-import {Button, ButtonGroup, ButtonToolbar, Form, FormControl, Nav, Navbar} from "react-bootstrap";
-import {Link, useHistory} from "react-router-dom";
+import {Button, ButtonGroup, ButtonToolbar, Nav, Navbar} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 
 const Header = () => {
-
-    const history = useHistory()
 
     return (
         <>

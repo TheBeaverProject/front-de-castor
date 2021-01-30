@@ -1,4 +1,4 @@
-import {Button, ButtonGroup, Card, Container, Row} from "react-bootstrap";
+import {Button, ButtonGroup, Container, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faGhost} from "@fortawesome/free-solid-svg-icons";
 import {useHistory} from "react-router-dom";
@@ -9,7 +9,7 @@ const Page404 = () => {
 
     return (
         <>
-            <div style={{display: "flex", flex: 1, alignItems: "center"}}>
+            <div className="center-items">
                 <Container>
                     <Row className="justify-content-center">
                         <div style={{fontSize: 120}}>
