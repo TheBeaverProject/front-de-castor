@@ -73,9 +73,11 @@ const Register = () => {
                             <Form.Check type="checkbox" label="I agree to the terms of conditions"/>
                         </Form.Group>
 
-                        <Button variant="primary" type="submit">
-                            Submit
-                        </Button>
+                        <Form.Row className="justify-content-end">
+                            <Button variant="primary" type="submit">
+                                Register
+                            </Button>
+                        </Form.Row>
                     </Form>
                 </Col>
             </Container>
