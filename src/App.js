@@ -14,6 +14,7 @@ import DefaultLayout from "./layouts/DefaultLayout";
 import AppRoute from "./utils/AppRoute";
 import Page404 from "./views/404"
 import Register from "./views/Register";
+import Login from "./views/Login";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <AppRoute path="/news" exact component={News} layout={DefaultLayout}/>
           <AppRoute path="/404" exact component={Page404} layout={DefaultLayout}/>
           <AppRoute path="/register" exact component={Register} layout={DefaultLayout}/>
+          <AppRoute path="/login" exact component={Login} layout={DefaultLayout}/>
           <Redirect from="*" to="/404" />
         </Switch>
       </BrowserRouter>

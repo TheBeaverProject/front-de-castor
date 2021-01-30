@@ -1,9 +1,11 @@
 import React from "react";
 import {Button, ButtonGroup, ButtonToolbar, Nav, Navbar} from "react-bootstrap";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 
 const Header = () => {
+
+    const history = useHistory();
 
     return (
         <>
@@ -19,10 +21,10 @@ const Header = () => {
                 </Nav>
                 <ButtonToolbar inline>
                     <ButtonGroup className="mr-4">
-                        <Button variant="primary">Register</Button>
+                        <Button variant="primary" onClick={() => history.push("/register")}>Register</Button>
                     </ButtonGroup>
                     <ButtonGroup>
-                        <Button variant="outline-info">Login</Button>
+                        <Button variant="outline-info" onClick={() => history.push("/login")}>Login</Button>
                     </ButtonGroup>
                 </ButtonToolbar>
                 </Navbar.Collapse>
