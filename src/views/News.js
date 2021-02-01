@@ -1,8 +1,9 @@
 import {FirestoreCollection} from "@react-firebase/firestore";
 import NewsPrompt from "../components/NewsPrompt";
-import {Container, Row} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 
 const News = () => {
+
 
     return (
         <>
@@ -18,11 +19,9 @@ const News = () => {
                                     const article = d.value[i];
                                     console.log(article)
                                     newsList.push(
-                                        <Row>
-                                            <NewsPrompt key={d.ids[i]} author={article.author} content={article.content}
-                                                        likes={article.likes}
-                                                        title={article.title} imageURL={article.previewImage}/>
-                                        </Row>
+                                        <NewsPrompt key={d.ids[i]} author={article.author} content={article.content}
+                                                    likes={article.likes}
+                                                    title={article.title} imageURL={article.previewImage}/>
                                     );
                                 }
                                 return newsList;
@@ -33,7 +32,6 @@ const News = () => {
             </Container>
         </>
     );
-
 };
 
 export default News;
