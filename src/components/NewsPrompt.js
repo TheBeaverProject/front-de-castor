@@ -14,11 +14,12 @@ const NewsPrompt = (props) => {
 
     const history = useHistory();
 
+    async function checkForLiked() {
+        return await db.collection("/users/").doc(firebase.auth().currentUser.uid)
+            .get();
+    }
+
     useEffect(() => {
-        async function checkForLiked() {
-            return await db.collection("/users/").doc(firebase.auth().currentUser.uid)
-                .get();
-        }
         checkForLiked().then(r => {
             setLiked(r.data().likedNews.includes(props.documentId));
         })
@@ -44,6 +45,12 @@ const NewsPrompt = (props) => {
         const user = firebase.auth().currentUser;
         if (user) {
             const newsDocument = db.collection("news").doc(props.documentId);
+            const userProfile = db.collection("users").doc(firebase.auth().currentUser.uid);
+            if (isLiked) {
+                userProfile.update({likedNews: firebase.firestore.FieldValue.arrayRemove(...[props.documentId])}).then(r => console.log(r));
+            } else {
+                userProfile.update({likedNews: firebase.firestore.FieldValue.arrayUnion(...[props.documentId])}).then(r => console.log(r));
+            }
             const increment = firebase.firestore.FieldValue.increment(isLiked ? -1 : 1);
             newsDocument.update({likes: increment}).then(r => setLiked(!isLiked));
         } else {
