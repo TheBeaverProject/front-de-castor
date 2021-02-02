@@ -22,6 +22,7 @@ import AppRoute from "./utils/AppRoute";
 import Page404 from "./views/404"
 import Register from "./views/Register";
 import Login from "./views/Login";
+import NewsWrapper from "./views/NewsWrapper";
 
 require('firebase/auth')
 require('firebase/firestore')
@@ -36,6 +37,7 @@ function App() {
                             <AppRoute path="/" exact component={Home} layout={DefaultLayout}/>
                             <AppRoute path="/contact" exact component={Contact} layout={DefaultLayout}/>
                             <AppRoute path="/news" exact component={News} layout={DefaultLayout}/>
+                            <AppRoute path="/news/:newsURL" component={(props) => <NewsWrapper {...props} />} layout={DefaultLayout}/>
                             <AppRoute path="/404" exact component={Page404} layout={DefaultLayout}/>
                             <AppRoute path="/register" exact component={Register} layout={DefaultLayout}/>
                             <AppRoute path="/login" exact component={Login} layout={DefaultLayout}/>

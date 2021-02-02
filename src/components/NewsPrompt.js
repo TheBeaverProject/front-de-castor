@@ -52,12 +52,9 @@ const NewsPrompt = (props) => {
                                     {props.author}
                                 </Card.Subtitle>
                             </div>
-                            <LinesEllipsis
-                                text={props.content}
-                                maxLine='5'
-                                ellipsis='...'
-                                trimRight
-                                basedOn='letters'/>
+                            <p style={{overflow: "hidden"}}>
+                                {props.content}
+                            </p>
                             <Button variant="outline-info" style={{width: "200px"}}>
                                 Read more...
                             </Button>
