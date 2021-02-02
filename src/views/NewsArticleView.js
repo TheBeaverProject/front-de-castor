@@ -1,8 +1,9 @@
 import firebase from "firebase";
 import {useEffect, useState} from "react";
 import Page404 from "./404";
+import NewsArticle from "../components/NewsArticle";
 
-const NewsWrapper = (props) => {
+const NewsArticleView = (props) => {
 
     const db = firebase.firestore();
 
@@ -22,11 +23,7 @@ const NewsWrapper = (props) => {
                 querySnapshot.forEach(function (doc) {
                     const documentData = doc.data();
                     console.log(documentData)
-                    setNewsArticle(
-                        <>
-                            <h1>{documentData.title}</h1>
-                            <p>{documentData.content}</p>
-                        </>
+                    setNewsArticle(<NewsArticle data={documentData}/>
                     );
                 });
             })
@@ -42,4 +39,4 @@ const NewsWrapper = (props) => {
         </>);
 }
 
-export default NewsWrapper;
+export default NewsArticleView;
