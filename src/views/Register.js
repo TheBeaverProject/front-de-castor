@@ -4,6 +4,7 @@ import {useState} from "react";
 import firebase from "firebase";
 import 'moment/locale/fr';
 import {isDate, isMoment} from "moment";
+import {userConverter, User} from "../data/User";
 
 const Register = () => {
 
@@ -18,8 +19,6 @@ const Register = () => {
     const db = firebase.firestore();
 
     const userRef = db.collection("users");
-
-    const [validated, setValidated] = useState(false);
 
     const [isCGUTicked, setCGUTicked] = useState(false);
     const [isCGUInvalid, setCGUInvalid] = useState(false);
@@ -133,7 +132,9 @@ const Register = () => {
             event.preventDefault();
             event.stopPropagation();
         } else {
-            //Create the account and redirect.
+            firebase.auth().createUserWithEmailAndPassword(email, password).then(r => {
+                userRef.doc(r.user.uid).withConverter(userConverter).set(new User(userName, email, birthDate));
+            })
         }
     };
 
@@ -176,8 +177,6 @@ const Register = () => {
                                 <Form.Control required
                                               custom={true}
                                               as={Datetime}
-                                              dateFormat={true}
-                                              locale={"en-GB"}
                                               timeFormat={false}
                                               onChange={(r) => {
                                                   console.log(r)

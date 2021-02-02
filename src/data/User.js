@@ -6,9 +6,9 @@ export const Status = {
 };
 Object.freeze(Status)
 
-class User {
+export class User {
     /**
-     * This class constitue the core of the User object containing all the user informations
+     * This class constitute the core of the User object containing all the user informations
      * @param username The username of the User
      * @param email The email of the User
      * @param birthdate The birthday of the User
@@ -27,7 +27,7 @@ class User {
         likedNews = [],
         matchHistory = [],
         elo = 1200,
-        registerDate = Date.now(),
+        registerDate = new Date(),
         status = Status.ACTIVE,
         items = [],
         level = 1
@@ -44,6 +44,9 @@ class User {
         this.level = level;
     }
 }
+
+export default User;
+
 
 // Firestore data converter
 export const userConverter = {
@@ -78,10 +81,8 @@ export const userConverter = {
     }
 };
 
-export default User;
 
-
-export const registerNewUser= (username, email, birthdate) => {
+export const registerNewUser = (username, email, birthdate) => {
     const newUser = new User(username, email, birthdate);
     console.log(newUser);
 }
