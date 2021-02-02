@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Button, Card, Col, Modal, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faHeart} from "@fortawesome/free-regular-svg-icons";
@@ -10,14 +10,27 @@ import {useHistory} from "react-router-dom";
 
 const NewsPrompt = (props) => {
 
+    const db = firebase.firestore();
+
     const history = useHistory();
 
-    const [isLiked, setLiked] = useState(props.isLiked);
+    useEffect(() => {
+        async function checkForLiked() {
+            return await db.collection("/users/").doc(firebase.auth().currentUser.uid)
+                .get();
+        }
+        checkForLiked().then(r => {
+            setLiked(r.data().likedNews.includes(props.documentId));
+        })
+    })
+
+    const [isLiked, setLiked] = useState(false);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true);
 
     NewsPrompt.propTypes = {
+        documentId: PropTypes.string.isRequired,
         author: PropTypes.string.isRequired,
         publishDate: PropTypes.string.isRequired,
         content: PropTypes.string.isRequired,
@@ -25,20 +38,22 @@ const NewsPrompt = (props) => {
         title: PropTypes.string.isRequired,
         imageURL: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired,
-        isLiked: PropTypes.bool
     };
 
     function handleLike() {
-        if (firebase.isSignedIn) {
-            setLiked(!isLiked);
+        const user = firebase.auth().currentUser;
+        if (user) {
+            const newsDocument = db.collection("news").doc(props.documentId);
+            const increment = firebase.firestore.FieldValue.increment(isLiked ? -1 : 1);
+            newsDocument.update({likes: increment}).then(r => setLiked(!isLiked));
         } else {
-            handleShow()
+            handleShow();
         }
     }
 
     function getDate() {
-        const date = new Date(props.publishDate*1000);
-        const month = date.toLocaleString('en', { month: 'long' });
+        const date = new Date(props.publishDate * 1000);
+        const month = date.toLocaleString('en', {month: 'long'});
         return date.getDate() + " " + month + " " + date.getFullYear();
     }
 

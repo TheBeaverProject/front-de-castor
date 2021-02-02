@@ -1,9 +1,11 @@
 import {FirestoreCollection} from "@react-firebase/firestore";
 import NewsPrompt from "../components/NewsPrompt";
 import {Container} from "react-bootstrap";
+import firebase from "firebase";
 
 const News = () => {
 
+    const db = firebase.firestore();
 
     return (
         <>
@@ -22,7 +24,8 @@ const News = () => {
                                         <NewsPrompt key={d.ids[i]} author={article.author} content={article.content}
                                                     likes={article.likes}
                                                     title={article.title} imageURL={article.previewImage}
-                                                    url={article.url} publishDate={article.publishDate.seconds}/>
+                                                    url={article.url} publishDate={article.publishDate.seconds}
+                                                    documentId={d.ids[i]}/>
                                     );
                                 }
                                 return newsList;
