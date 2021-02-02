@@ -21,7 +21,8 @@ const News = () => {
                                     newsList.push(
                                         <NewsPrompt key={d.ids[i]} author={article.author} content={article.content}
                                                     likes={article.likes}
-                                                    title={article.title} imageURL={article.previewImage} url={article.url}/>
+                                                    title={article.title} imageURL={article.previewImage}
+                                                    url={article.url} publishDate={article.publishDate.seconds}/>
                                     );
                                 }
                                 return newsList;

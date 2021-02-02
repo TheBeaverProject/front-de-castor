@@ -19,6 +19,7 @@ const NewsPrompt = (props) => {
 
     NewsPrompt.propTypes = {
         author: PropTypes.string.isRequired,
+        publishDate: PropTypes.string.isRequired,
         content: PropTypes.string.isRequired,
         likes: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
@@ -35,6 +36,12 @@ const NewsPrompt = (props) => {
         }
     }
 
+    function getDate() {
+        const date = new Date(props.publishDate*1000);
+        const month = date.toLocaleString('en', { month: 'long' });
+        return date.getDate() + " " + month + " " + date.getFullYear();
+    }
+
     return (
         <>
             <Card className="mt-5">
@@ -49,8 +56,17 @@ const NewsPrompt = (props) => {
                                 <Card.Title as="h2" style={{paddingBottom: "10px"}}>
                                     {props.title}
                                 </Card.Title>
-                                <Card.Subtitle className="text-muted" style={{paddingBottom: "10px"}}>
-                                    {props.author}
+                                <Card.Subtitle className="text-muted" style={{
+                                    display: 'flex',
+                                    paddingBottom: "10px",
+                                    justifyContent: "space-between"
+                                }}>
+                                    <div>
+                                        {props.author}
+                                    </div>
+                                    <div>
+                                        {getDate()}
+                                    </div>
                                 </Card.Subtitle>
                             </div>
                             <p style={{overflow: "hidden"}}>
