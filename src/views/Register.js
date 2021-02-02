@@ -2,11 +2,13 @@ import {Button, Col, Container, Form, FormGroup, InputGroup, Row} from "react-bo
 import Datetime from 'react-datetime';
 import {useState} from "react";
 import firebase from "firebase";
-import 'moment/locale/fr';
 import {isDate, isMoment} from "moment";
 import {userConverter, User} from "../data/User";
+import {useHistory} from "react-router-dom";
 
 const Register = () => {
+
+    const history = useHistory();
 
     function calculateAge(birthday) { // birthday is a date
         const ageDifMs = Date.now() - birthday.getTime();
@@ -133,7 +135,9 @@ const Register = () => {
             event.stopPropagation();
         } else {
             firebase.auth().createUserWithEmailAndPassword(email, password).then(r => {
-                userRef.doc(r.user.uid).withConverter(userConverter).set(new User(userName, email, birthDate));
+                userRef.doc(r.user.uid).withConverter(userConverter).set(
+                    new User(userName, email, birthDate))
+                    .then((_) => history.push("/"));
             })
         }
     };
