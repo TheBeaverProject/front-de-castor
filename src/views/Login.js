@@ -37,9 +37,9 @@ const Login = () => {
                                 </FormGroup>
                             </Form.Row>
                             <Form.Row className="justify-content-end">
-                                <p>
+                                <Button variant="link">
                                     Forgot password ?
-                                </p>
+                                </Button>
                             </Form.Row>
                             <Form.Row className="justify-content-center">
                                 <Button variant="primary" type="submit">

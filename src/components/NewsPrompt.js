@@ -23,11 +23,12 @@ const NewsPrompt = (props) => {
         likes: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
         imageURL: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
         isLiked: PropTypes.bool
     };
 
     function handleLike() {
-        if(firebase.isSignedIn) {
+        if (firebase.isSignedIn) {
             setLiked(!isLiked);
         } else {
             handleShow()
@@ -55,7 +56,8 @@ const NewsPrompt = (props) => {
                             <p style={{overflow: "hidden"}}>
                                 {props.content}
                             </p>
-                            <Button variant="outline-info" style={{width: "200px"}}>
+                            <Button variant="outline-info" style={{width: "200px"}}
+                                    onClick={() => history.push("/news/" + props.url)}>
                                 Read more...
                             </Button>
                         </div>
@@ -63,7 +65,8 @@ const NewsPrompt = (props) => {
                 </Row>
                 <Card.Footer>
                     <div style={{fontSize: "14pt"}}>
-                        <button style={{color: "transparent", backgroundColor: "transparent", border: "none"}} onClick={handleLike}>
+                        <button style={{color: "transparent", backgroundColor: "transparent", border: "none"}}
+                                onClick={handleLike}>
                             <FontAwesomeIcon icon={isLiked ? filledHeart : faHeart}
                                              style={{color: isLiked ? "red" : "black"}}/>
                         </button>
@@ -75,7 +78,8 @@ const NewsPrompt = (props) => {
                 <Modal.Header closeButton>
                     <Modal.Title>You are not connected!</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>If you want to like a news article, jump to the login page with the button below!</Modal.Body>
+                <Modal.Body>If you want to like a news article, jump to the login page with the button
+                    below!</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
