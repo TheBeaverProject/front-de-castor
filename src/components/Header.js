@@ -46,16 +46,18 @@ const Header = () => {
                                     getUserData(user.uid).then(userData => {
                                         setUsername(userData.username);
                                     })
-                                    return(
-                                    <>
-                                        <Nav className="mr-4">
-                                            <Nav.Link as={Link} to="/user/SDA">Logged in
-                                                as {userName}</Nav.Link>
-                                            <Nav.Link as={Link} onClick={() => firebase.auth().signOut()}>
-                                                Logout
-                                            </Nav.Link>
-                                        </Nav>
-                                    </>)
+                                    return (
+                                        <>
+                                            <Nav className="mr-4">
+                                                <Nav.Link as={Link} to="/user/SDA">Logged in
+                                                    as {userName}</Nav.Link>
+                                                <Nav.Link as={Link} onClick={() => {
+                                                    firebase.auth().signOut().then(r => history.push("/"))
+                                                }}>
+                                                    Logout
+                                                </Nav.Link>
+                                            </Nav>
+                                        </>)
                                 }
                             }
                             }

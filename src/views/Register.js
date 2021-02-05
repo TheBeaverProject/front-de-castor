@@ -182,6 +182,8 @@ const Register = () => {
                                               custom={true}
                                               as={Datetime}
                                               timeFormat={false}
+                                              type="date"
+                                              dateFormat={"dd/MM/YYYY"}
                                               onChange={(r) => {
                                                   console.log(r)
                                                   if (isMoment(r)) {

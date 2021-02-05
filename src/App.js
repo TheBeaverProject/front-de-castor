@@ -10,8 +10,8 @@ import {FirestoreProvider} from "@react-firebase/firestore";
 
 //Stylesheets
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles/layout.css'
 import "react-datetime/css/react-datetime.css";
+import "./styles/layout.css"
 
 //Views
 import Home from "./views/Home";

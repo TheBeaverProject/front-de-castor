@@ -11,16 +11,24 @@ const NewsPrompt = (props) => {
 
     const db = firebase.firestore();
 
+    const [isUserLoggedIn, setUserLoggedIn] = useState(false);
+
     const history = useHistory();
 
     async function checkForLiked() {
-        return await db.collection("/users/").doc(firebase.auth().currentUser.uid)
+        if (!firebase.auth().currentUser)
+            return false;
+        const data = await db.collection("/users/").doc(firebase.auth().currentUser.uid)
             .get();
+        return data.data().likedNews.includes(props.documentId);
     }
 
     useEffect(() => {
+        firebase.auth().onAuthStateChanged(function (user) {
+            setUserLoggedIn(user !== null);
+        })
         checkForLiked().then(r => {
-            setLiked(r.data().likedNews.includes(props.documentId));
+            setLiked(r);
         })
     })
 
@@ -41,8 +49,7 @@ const NewsPrompt = (props) => {
     };
 
     function handleLike() {
-        const user = firebase.auth().currentUser;
-        if (user) {
+        if (isUserLoggedIn) {
             const newsDocument = db.collection("news").doc(props.documentId);
             const userProfile = db.collection("users").doc(firebase.auth().currentUser.uid);
             if (isLiked) {
