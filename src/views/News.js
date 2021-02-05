@@ -1,11 +1,8 @@
 import {FirestoreCollection} from "@react-firebase/firestore";
 import NewsPrompt from "../components/NewsPrompt";
 import {Container} from "react-bootstrap";
-import firebase from "firebase";
 
 const News = () => {
-
-    const db = firebase.firestore();
 
     return (
         <>

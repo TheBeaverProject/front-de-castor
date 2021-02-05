@@ -4,7 +4,6 @@ import {Button, Card, Col, Modal, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faHeart} from "@fortawesome/free-regular-svg-icons";
 import {faHeart as filledHeart} from "@fortawesome/free-solid-svg-icons";
-import LinesEllipsis from 'react-lines-ellipsis'
 import firebase from 'firebase/app';
 import {useHistory} from "react-router-dom";
 

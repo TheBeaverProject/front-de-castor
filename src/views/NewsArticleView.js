@@ -5,13 +5,10 @@ import NewsArticle from "../components/NewsArticle";
 
 const NewsArticleView = (props) => {
 
-    const db = firebase.firestore();
-
     const [newsArticle, setNewsArticle] = useState();
 
-    const newsRef = db.collection("news");
-
     useEffect(() => {
+        const newsRef = firebase.firestore().collection("news");
         newsRef.where("url", "==", props.match.params.newsURL).get()
             .then(function (querySnapshot) {
                 if (querySnapshot.empty) {
@@ -30,7 +27,7 @@ const NewsArticleView = (props) => {
             .catch(function (error) {
                 console.log("Error getting documents: ", error);
             });
-    }, []);
+    }, [props]);
 
 
     return (
