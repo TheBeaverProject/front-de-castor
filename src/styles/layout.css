@@ -1,0 +1,26 @@
+.center-items {
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.card-horizontal {
+    display: flex;
+    flex: 1;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(100, 100, 100, 0.26);
+}
+
+.img-square-wrapper {
+    object-fit: contain;
+}
+
+.card-body-overflow {
+    display: grid;
+    padding: 20px;
+    height: 20rem;
+    grid-template-rows: auto 1fr auto;
+}

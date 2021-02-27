@@ -1,20 +1,23 @@
 import React from "react";
+import {Nav, Navbar} from "react-bootstrap";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faInstagram, faTwitter} from "@fortawesome/free-brands-svg-icons";
+import {faHeart} from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
     return (
-        <footer>
-            <ul>
-                <li>
-                    <a href="#twitter">Twitter logo here</a>
-                </li>
-                <li>
-                    <a href="#github">Github logo here</a>
-                </li>
-                <li>
-                    <a href="#instagram">Instagram ? logo here</a>
-                </li>
-            </ul>
-        </footer>
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{position: "relative", bottom: 0}}>
+            <Nav>
+                <Navbar.Text>
+                    Made with <FontAwesomeIcon icon={faHeart} style={{color: "red"}}/> by <a
+                    href="https://github.com/TheBeaverProject/">The Beaver Project</a> © 2021
+                </Navbar.Text>
+            </Nav>
+            <Navbar.Collapse className="justify-content-end">
+                <Nav.Link href="https://twitter.com"><FontAwesomeIcon icon={faTwitter}/></Nav.Link>
+                <Nav.Link href="https://instagram.com"><FontAwesomeIcon icon={faInstagram}/></Nav.Link>
+            </Navbar.Collapse>
+        </Navbar>
     )
 };
 

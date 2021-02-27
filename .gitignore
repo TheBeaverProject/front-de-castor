@@ -1,8 +1,14 @@
+#Env Files
+.env
+
 # Coding style
 .eslintcache
 
 # Vscode config
 .vscode
+
+#Intellij Config
+.idea/
 
 # Logs
 logs
