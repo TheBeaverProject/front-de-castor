@@ -16,6 +16,9 @@ const NavBar = () => {
           <button onClick={() => history.push("/news")}>News</button>
         </li>
         <li>
+          <button onClick={() => history.push("/Downloads")}>Downloads</button>
+        </li>
+        <li>
           <button onClick={() => history.push("/contact")}>Contact</button>
         </li>
         <li>
