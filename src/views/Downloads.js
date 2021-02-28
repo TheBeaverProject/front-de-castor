@@ -4,8 +4,6 @@ import DownloadCard from "../components/DownloadCard.js"
 import { FirestoreCollection } from "@react-firebase/firestore";
 import Spinner from "../components/Spinner.js";
 
-
-
 const Downloads = () => {
     return (
         <>
