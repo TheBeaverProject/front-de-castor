@@ -1,5 +1,6 @@
 import {FirestoreCollection} from "@react-firebase/firestore";
 import NewsPrompt from "../components/NewsPrompt";
+import Spinner from "../components/Spinner.js";
 import {Container} from "react-bootstrap";
 
 const News = () => {
@@ -11,7 +12,9 @@ const News = () => {
                     {
                         d => {
                             if (d.isLoading) {
-                                return "Loading"
+                                return (<>
+                                    <Spinner></Spinner>
+                                </>)
                             } else {
                                 let newsList = [];
                                 for (let i = 0; i < d.ids.length; i++) {

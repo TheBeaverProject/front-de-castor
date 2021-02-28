@@ -23,7 +23,7 @@ function DownloadCard(props) {
                         variant="primary"
                         onClick={() => window.open(props.downloadLink)}>
                         <FontAwesomeIcon icon={faFile}></FontAwesomeIcon> Download
-                            </Button>
+                    </Button>
                 </Card.Body>
             </Card>
         </>
