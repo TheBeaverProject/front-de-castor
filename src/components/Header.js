@@ -23,8 +23,9 @@ const Header = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
                             <Nav.Link as={Link} to="/">Home</Nav.Link>
-                            <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
+                            <Nav.Link as={Link} to="/downloads">Downloads</Nav.Link>
                             <Nav.Link as={Link} to="/news">News</Nav.Link>
+                            <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
                             <Nav.Link as={Link} to="/support">Support Us!</Nav.Link>
                         </Nav>
                         <FirebaseAuthConsumer>
