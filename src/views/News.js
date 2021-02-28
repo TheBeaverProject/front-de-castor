@@ -7,7 +7,7 @@ const News = () => {
 
     return (
         <>
-            <Container>
+            <Container className="mb-5">
                 <FirestoreCollection path="/news/">
                     {
                         d => {

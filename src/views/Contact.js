@@ -6,7 +6,7 @@ const Contact = () => {
 
     return (
         <>
-            <Container className="mt-3">
+            <Container className="mt-3 mb-3">
                 <Row className={"justify-content-around mt-3"}>
                     <ContactCard name={"Augustin Begue"} email={"augustin.begue@epita.fr"}
                                  gh_link={"https://github.com/Tagueo"}
