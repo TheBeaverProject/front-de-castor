@@ -15,7 +15,7 @@ import "./styles/layout.css"
 
 //Views
 import Home from "./views/Home";
-import Contact from "./views/Contact";
+import About from "./views/About";
 import News from "./views/News"
 import DefaultLayout from "./layouts/DefaultLayout";
 import AppRoute from "./utils/AppRoute";
@@ -36,7 +36,7 @@ function App() {
                     <BrowserRouter>
                         <Switch>
                             <AppRoute path="/" exact component={Home} layout={DefaultLayout}/>
-                            <AppRoute path="/contact" exact component={Contact} layout={DefaultLayout}/>
+                            <AppRoute path="/about" exact component={About} layout={DefaultLayout}/>
                             <AppRoute path="/news" exact component={News} layout={DefaultLayout}/>
                             <AppRoute path="/news/:newsURL" component={(props) => <NewsArticleView {...props} />} layout={DefaultLayout}/>
                             <AppRoute path="/404" exact component={Page404} layout={DefaultLayout}/>
