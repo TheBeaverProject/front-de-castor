@@ -1,3 +1,12 @@
+.icon {
+    width: 48px;
+    padding: 4px;
+}
+
+.assetList {
+    font-size: 14pt;
+}
+
 .center-items {
     display: flex;
     flex: 1;
@@ -11,7 +20,6 @@
 
 .card {
     border-radius: 10px;
-    box-shadow: 0 0 10px 0 rgba(100, 100, 100, 0.26);
 }
 
 .img-square-wrapper {
