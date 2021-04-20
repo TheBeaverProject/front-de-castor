@@ -72,7 +72,7 @@ const NewsPrompt = (props) => {
 
     return (
         <>
-            <Card className="mt-5">
+            <Card data-augmented-ui="tl-clip" className="mt-5">
                 <Row className="no-gutters">
                     <Col className="col-sm-auto">
                         <Card.Img src={props.imageURL}

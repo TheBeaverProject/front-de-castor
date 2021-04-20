@@ -12,6 +12,8 @@ import {FirestoreProvider} from "@react-firebase/firestore";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "react-datetime/css/react-datetime.css";
 import "./styles/layout.css"
+import "./styles/cyberpunk.css"
+import "../node_modules/augmented-ui/augmented-ui.min.css"
 
 //Views
 import Home from "./views/Home";

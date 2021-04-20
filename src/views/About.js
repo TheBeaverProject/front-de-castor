@@ -93,15 +93,19 @@ could ultimately generate earnings.
                         <ul className='assetList'>
                             <ol>
                                 <Image className='icon' src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png'></Image>
-                                <a href="https://docs.microsoft.com/en-us/dotnet/csharp/">JavaScript</a>
+                                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a>
                             </ol>
                             <ol>
                                 <Image className='icon' src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png'></Image>
-                                <a href="https://unity.com/">React</a>
+                                <a href="https://reactjs.org/">ReactJs</a>
                             </ol>
                             <ol>
                                 <Image className='icon' src='https://www.pngrepo.com/download/303670/firebase-1-logo.png'></Image>
-                                <a href="https://assetstore.unity.com/packages/tools/network/rest-client-for-unity-102501">Firebase</a>
+                                <a href="https://firebase.google.com/">Firebase</a>
+                            </ol>
+                            <ol>
+                                <Image className='icon' src='https://www.pngrepo.com/download/303670/firebase-1-logo.png'></Image>
+                                <a href="https://firebase.google.com/">Bootstrap</a>
                             </ol>
                         </ul>
                     </Col>

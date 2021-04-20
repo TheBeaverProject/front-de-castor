@@ -16,7 +16,7 @@ function ContactCard(props) {
 
     return (
         <>
-            <Card style={{width: '20rem'}}>
+            <Card data-augmented-ui="tl-clip" style={{width: '20rem'}}>
                 <Card.Img variant="top" style={{height: "20rem"}}
                           src={props.photo}/>
                 <Card.Body>

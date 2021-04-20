@@ -17,7 +17,7 @@ const Header = () => {
 
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky={"top"}>
+            <Navbar collapseOnSelect expand="lg" bg="c-dark" variant="dark" sticky={"top"}>
                 <Navbar.Brand as={Link} to="/">
                     <img
                         src={process.env.PUBLIC_URL + '/logo192.png'}

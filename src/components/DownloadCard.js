@@ -16,16 +16,17 @@ function DownloadCard(props) {
 
     return (
         <>
-            <Card className="mt-5">
+            <Card data-augmented-ui="br-clip" className={ props.isDefense ? "mt-5 bg-c-success" :  props.isFirst ? "mt-5 bg-c-info" : "mt-5 bg-c-light" }>
                 <Card.Body>
-                    <Card.Title>{ props.version } { props.isDefense ? <Badge variant="info">Defense Handout</Badge> : '' } { props.isFirst ? <Badge variant="primary">Latest</Badge> : '' }</Card.Title>
+                    <Card.Title>{ props.version } { props.isDefense ? <Badge variant="info" className="bg-c-info">Defense Handout</Badge> : '' } { props.isFirst ? <Badge variant="primary" className="bg-c-success">Latest</Badge> : '' }</Card.Title>
                     <Card.Text>
                         { props.description }
                         <br></br>
                         <i>{ props.date }</i>
                     </Card.Text>
                     <Button
-                        variant="primary"
+                        className="bg-c-dark"
+                        data-augmented-ui="br-clip"
                         onClick={() => window.open(props.downloadLink)}>
                         <FontAwesomeIcon icon={faDownload}></FontAwesomeIcon> Download
                     </Button>

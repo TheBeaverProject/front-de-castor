@@ -18,10 +18,6 @@
     flex: 1;
 }
 
-.card {
-    border-radius: 10px;
-}
-
 .img-square-wrapper {
     object-fit: contain;
 }
@@ -31,4 +27,8 @@
     padding: 20px;
     height: 20rem;
     grid-template-rows: auto 1fr auto;
+}
+
+.jumbotron {
+    border-radius: 0px;
 }

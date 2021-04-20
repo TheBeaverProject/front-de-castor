@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+html, body {
+    background-color: black;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1, .h1 {
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+h2, .h2 {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+h3, .h3 {
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+h4, .h4 {
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+h5, .h5 {
+    text-transform: uppercase;
+}
+
+p {
+    font-family: 'Lato', sans-serif;
+}
+
+.bg-c-info {
+    background-color: #F6EB14 !important;
+    color: black !important;
+}
+
+.bg-c-success {
+    background-color: #00FFFF !important;
+    color: black !important;
+}
+
+.bg-c-warning {
+    background-color: #EE1D47 !important;
+    color: black !important;
+}
+
+.bg-c-light {
+    background-color: #eaeaea !important;
+    color: black !important;
+}
+
+.bg-c-dark {
+    background-color: black !important;
+    color: #eaeaea !important;
+}
+
+.card {
+    background-color: #eaeaea;
+    color: black;
+    border-radius: 0px;
+}
+
+.btn {
+    border-radius: 0;
+    border: none;
+}
+
