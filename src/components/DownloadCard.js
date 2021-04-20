@@ -9,6 +9,7 @@ function DownloadCard(props) {
         version: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
         downloadLink: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired
     }
 
     return (
@@ -18,6 +19,8 @@ function DownloadCard(props) {
                     <Card.Title>{ props.version }</Card.Title>
                     <Card.Text>
                         { props.description }
+                        <br></br>
+                        <i>{ props.date }</i>
                     </Card.Text>
                     <Button
                         variant="primary"

@@ -4,13 +4,11 @@ import DownloadCard from "../components/DownloadCard.js"
 import { FirestoreCollection } from "@react-firebase/firestore";
 import Spinner from "../components/Spinner.js";
 
-
-
 const Downloads = () => {
     return (
         <>
             <Container>
-                <FirestoreCollection path="/downloads/">
+                <FirestoreCollection path="/downloads/" orderBy={[{field: 'date', type: 'desc'}]}>
                     {
                         req => {
                             if (req.isLoading) {
@@ -21,13 +19,17 @@ const Downloads = () => {
                                 let dlList = [];
                                 for (let i = 0; i < req.ids.length; i++) {
                                     const download = req.value[i];
+
+                                    console.log(download.date.seconds)
+                                    console.log(new Date(download.date.seconds * 1000))
                                     
                                     dlList.push(
                                         <DownloadCard
                                             key={req.ids[i]}
                                             version={download.version}
                                             description={download.description}
-                                            downloadLink={download.downloadLink}>
+                                            downloadLink={download.downloadLink}
+                                            date={new Date(download.date.seconds * 1000).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}>
                                         </DownloadCard>
                                     )
                                 }
