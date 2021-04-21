@@ -19,11 +19,12 @@ const Downloads = () => {
                                 let dlList = [];
                                 for (let i = 0; i < req.ids.length; i++) {
                                     const download = req.value[i];
+
+                                    console.log(download.date.seconds)
+                                    console.log(new Date(download.date.seconds * 1000))
                                     
                                     dlList.push(
                                         <DownloadCard
-                                            isFirst={i === 0 ? true : false}
-                                            isDefense={download.version.startsWith("Defense") ? true : false}
                                             key={req.ids[i]}
                                             version={download.version}
                                             description={download.description}

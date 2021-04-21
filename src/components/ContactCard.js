@@ -1,4 +1,4 @@
-import {Card, Container, Row, Button} from "react-bootstrap";
+import {Card, Container, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faGithub} from "@fortawesome/free-brands-svg-icons";
 import {faEnvelope} from "@fortawesome/free-regular-svg-icons";
@@ -16,7 +16,7 @@ function ContactCard(props) {
 
     return (
         <>
-            <Card data-augmented-ui="tl-clip" className='bg-c-info' style={{width: '20rem', margin: '8px'}}>
+            <Card style={{width: '20rem'}}>
                 <Card.Img variant="top" style={{height: "20rem"}}
                           src={props.photo}/>
                 <Card.Body>
@@ -24,18 +24,12 @@ function ContactCard(props) {
                     <Card.Text>
                         <Container>
                             <Row className={"justify-content-around mt-4"}>
-                                {props.gh_link && <Button
-                                    className="bg-c-success"
-                                    data-augmented-ui="tl-clip"
-                                    onClick={() => window.open(props.gh_link, '_blank')}>
+                                {props.gh_link && <a href={props.gh_link}>
                                     <FontAwesomeIcon icon={faGithub} style={{fontSize: "24pt"}}/>
-                                </Button>}
-                                <Button
-                                    className="bg-c-success"
-                                    data-augmented-ui="tl-clip"
-                                    onClick={() => window.open("mailto:" + props.email, '_blank')}>
+                                </a>}
+                                <a href={"mailto:" + props.email}>
                                     <FontAwesomeIcon icon={faEnvelope} style={{fontSize: "24pt"}}/>
-                                </Button>
+                                </a>
                             </Row>
                         </Container>
                     </Card.Text>
