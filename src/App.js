@@ -31,10 +31,6 @@ require('firebase/firestore')
 
 function App() {
     return (
-        <>
-            <head>
-                <link rel="stylesheet" type="text/css" href="https://unpkg.com/augmented-ui@2/augmented-ui.min.css"></link>
-            </head>
             <div className="App">
             <FirebaseAuthProvider firebase={firebase} {...firebaseConfig}>
                 <FirestoreProvider {...firebaseConfig} firebase={firebase}>
@@ -54,7 +50,6 @@ function App() {
                 </FirestoreProvider>
             </FirebaseAuthProvider>
         </div>
-    </>  
 );
 }
 
