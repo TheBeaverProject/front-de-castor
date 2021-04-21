@@ -11,7 +11,6 @@ import {FirestoreProvider} from "@react-firebase/firestore";
 //Stylesheets
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "react-datetime/css/react-datetime.css";
-import "../node_modules/augmented-ui/augmented-ui.min.css"
 import "./styles/layout.css"
 import "./styles/cyberpunk.css"
 
@@ -32,7 +31,11 @@ require('firebase/firestore')
 
 function App() {
     return (
-        <div className="App">
+        <>
+            <head>
+                <link rel="stylesheet" type="text/css" href="https://unpkg.com/augmented-ui@2/augmented-ui.min.css"></link>
+            </head>
+            <div className="App">
             <FirebaseAuthProvider firebase={firebase} {...firebaseConfig}>
                 <FirestoreProvider {...firebaseConfig} firebase={firebase}>
                     <BrowserRouter>
@@ -51,6 +54,7 @@ function App() {
                 </FirestoreProvider>
             </FirebaseAuthProvider>
         </div>
+    </>  
 );
 }
 
