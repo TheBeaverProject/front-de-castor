@@ -164,7 +164,7 @@ const Register = () => {
                             <Form.Group as={Col}>
                                 <InputGroup>
                                     <InputGroup.Prepend>
-                                        <InputGroup.Text>@</InputGroup.Text>
+                                        <InputGroup.Text style={{borderRadius: '0px'}} className='bg-c-info'>@</InputGroup.Text>
                                     </InputGroup.Prepend>
                                     <Form.Control placeholder="Username" type="text" required value={userName}
                                                   isInvalid={userNameTaken}
@@ -248,7 +248,7 @@ const Register = () => {
                         </Form.Group>
 
                         <Form.Row className="justify-content-end">
-                            <Button variant="primary" onClick={handleSubmit}>
+                            <Button className="bg-c-success" data-augmented-ui="br-clip" onClick={handleSubmit}>
                                 Register
                             </Button>
                         </Form.Row>

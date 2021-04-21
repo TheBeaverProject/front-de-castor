@@ -17,7 +17,7 @@ const Header = () => {
 
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky={"top"}>
+            <Navbar collapseOnSelect expand="lg" bg="c-dark" variant="dark" sticky={"top"}>
                 <Navbar.Brand as={Link} to="/">
                     <img
                         src={process.env.PUBLIC_URL + '/logo192.png'}
@@ -33,8 +33,7 @@ const Header = () => {
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
                         <Nav.Link as={Link} to="/downloads">Downloads</Nav.Link>
                         <Nav.Link as={Link} to="/news">News</Nav.Link>
-                        <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
-                        <Nav.Link as={Link} to="/support">Support Us!</Nav.Link>
+                        <Nav.Link as={Link} to="/about">About</Nav.Link>
                     </Nav>
                     <FirebaseAuthConsumer>
                         {({ isSignedIn, user, providerId }) => {
@@ -42,11 +41,11 @@ const Header = () => {
                                 return (<>
                                     <ButtonToolbar>
                                         <ButtonGroup className="mr-4">
-                                            <Button variant="primary"
+                                            <Button className="bg-c-success" data-augmented-ui="br-clip"
                                                 onClick={() => history.push("/register")}>Register</Button>
                                         </ButtonGroup>
                                         <ButtonGroup>
-                                            <Button variant="outline-info"
+                                            <Button className="bg-c-info" data-augmented-ui="br-clip"
                                                 onClick={() => history.push("/login")}>Login</Button>
                                         </ButtonGroup>
                                     </ButtonToolbar>
