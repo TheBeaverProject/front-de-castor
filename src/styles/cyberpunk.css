@@ -1,9 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
+* {
+    --primary: #00FFFF;
+    --secondary: #F6EB14;
+    --success: #00FFFF;
+    --info: #F6EB14;
+    --warning: #EE1D47;
+    --light: #eaeaea;
+    --dark: black;
+    --font-family-sans-serif: 'Poppins', sans-serif;
+}
+
 html, body {
     background-color: black;
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-family-sans-serif);
 }
 
 h1, .h1 {
@@ -63,75 +74,76 @@ p {
 }
 
 .bg-c-info.btn:hover, .bg-c-info.btn:focus {
-    color: #F6EB14;
-    background-color: black;
+    color: var(--info);
+    background-color: var(--dark);
 }
 
 .bg-c-success.btn:hover, .bg-c-success.btn:focus {
-    color: #00FFFF;
-    background-color: black;
+    color: var(--success);
+    background-color: var(--dark);
 }
 
 .bg-c-warning.btn:hover, .bg-c-warning.btn:focus {
-    color: #EE1D47;
-    background-color: black;
+    color: var(--warning);
+    background-color: var(--dark);
 }
 
 .bg-c-light.btn:hover, .bg-c-light.btn:focus {
-    color: #eaeaea;
-    background-color: black;
+    color: var(--light);
+    background-color: var(--dark);
 }
 
 .bg-c-dark.btn:hover, .bg-c-dark.btn:focus {
-    color: black;
-    background-color: #eaeaea;
+    color: var(--dark);
+    background-color: var(--light);
 }
 
 .nav-link {
-    color: #eaeaea;
+    color: var(--light);
+    transition: color ease-in 0.2;
 }
 
 .bg-c-info {
-    background-color: #F6EB14;
-    color: black;
+    background-color: var(--info);
+    color: var(--dark);
 }
 
 .bg-c-success {
-    background-color: #00FFFF;
-    color: black;
+    background-color: var(--success);
+    color: var(--dark);
 }
 
 .bg-c-warning {
-    background-color: #EE1D47;
-    color: black;
+    background-color: var(--warning);
+    color: var(--dark);;
 }
 
 .bg-c-light {
     background-color: #eaeaea;
-    color: black;
+    color: var(--dark);
 }
 
 .bg-c-dark {
-    background-color: black;
-    color: #eaeaea;
+    background-color: var(--dark);
+    color: var(--light);
 }
 
 .txt-c-info {
-    color: #F6EB14;
+    color: var(--info);
 }
 
 .txt-c-success {
-    color: #00FFFF;
+    color: var(--success);
 }
 
 .txt-c-warning {
-    color: #EE1D47;
+    color: var(--warning);
 }
 
 .txt-c-light {
-    color: #eaeaea;
+    color: var(--light);
 }
 
 .txt-c-dark {
-    color: black;
+    color: var(--dark);
 }
