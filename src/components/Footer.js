@@ -6,7 +6,7 @@ import {faHeart} from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{position: "relative", bottom: 0}}>
+        <Navbar collapseOnSelect expand="lg" bg="c-dark" variant="dark" style={{position: "relative", bottom: 0}}>
             <Nav>
                 <Navbar.Text>
                     Made with <FontAwesomeIcon icon={faHeart} style={{color: "red"}}/> by <a

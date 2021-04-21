@@ -8,7 +8,7 @@ const News = () => {
     return (
         <>
             <Container className="mb-5">
-                <FirestoreCollection path="/news/">
+                <FirestoreCollection path="/news/" orderBy={[{field: 'publishDate', type: 'desc'}]}>
                     {
                         d => {
                             if (d.isLoading) {

@@ -72,7 +72,7 @@ const NewsPrompt = (props) => {
 
     return (
         <>
-            <Card className="mt-5">
+            <Card data-augmented-ui="tr-clip" className="mt-5">
                 <Row className="no-gutters">
                     <Col className="col-sm-auto">
                         <Card.Img src={props.imageURL}
@@ -100,7 +100,7 @@ const NewsPrompt = (props) => {
                             <p style={{overflow: "hidden"}}>
                                 {props.content}
                             </p>
-                            <Button variant="outline-info" style={{width: "200px"}}
+                            <Button className='bg-c-info' data-augmented-ui="tr-clip" style={{width: "150px"}}
                                     onClick={() => history.push("/news/" + props.url)}>
                                 Read more...
                             </Button>
@@ -118,17 +118,17 @@ const NewsPrompt = (props) => {
                     </div>
                 </Card.Footer>
             </Card>
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
+            <Modal data-augmented-ui="tr-clip" show={show} onHide={handleClose}>
+                <Modal.Header closeButton className='bg-c-info'>
                     <Modal.Title>You are not connected!</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>If you want to like a news article, jump to the login page with the button
+                <Modal.Body className='bg-c-info'>If you want to like a news article, jump to the login page with the button
                     below!</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                <Modal.Footer className='bg-c-info'>
+                    <Button className='bg-c-warning' data-augmented-ui="tr-clip" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={() => history.push("/login")}>
+                    <Button className='bg-c-success' data-augmented-ui="tr-clip" onClick={() => history.push("/login")}>
                         Login
                     </Button>
                 </Modal.Footer>
