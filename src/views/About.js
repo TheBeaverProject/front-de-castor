@@ -104,7 +104,7 @@ could ultimately generate earnings.
                                 <a href="https://firebase.google.com/">Firebase</a>
                             </ol>
                             <ol>
-                                <Image className='icon' src='https://www.pngrepo.com/download/303670/firebase-1-logo.png'></Image>
+                                <Image className='icon' src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/langfr-220px-Bootstrap_logo.svg.png'></Image>
                                 <a href="https://firebase.google.com/">Bootstrap</a>
                             </ol>
                         </ul>

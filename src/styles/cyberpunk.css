@@ -16,13 +16,13 @@ h2, .h2 {
     text-transform: uppercase;
 }
 
-h3, .h3 {
+h3, .h3, .nav-link {
     font-weight: 500;
     text-transform: uppercase;
 }
 
 h4, .h4 {
-    font-weight: 300;
+    font-weight: 400;
     text-transform: uppercase;
 }
 
@@ -34,39 +34,104 @@ p {
     font-family: 'Lato', sans-serif;
 }
 
-.bg-c-info {
-    background-color: #F6EB14 !important;
-    color: black !important;
-}
 
-.bg-c-success {
-    background-color: #00FFFF !important;
-    color: black !important;
-}
-
-.bg-c-warning {
-    background-color: #EE1D47 !important;
-    color: black !important;
-}
-
-.bg-c-light {
-    background-color: #eaeaea !important;
-    color: black !important;
-}
-
-.bg-c-dark {
-    background-color: black !important;
-    color: #eaeaea !important;
-}
-
-.card {
+.card, .card-footer, .card-header, .modal-content, .modal-header, .modal-footer {
     background-color: #eaeaea;
     color: black;
     border-radius: 0px;
+    border: none;
+}
+
+.form-control {
+    border: solid white 1px;
+    border-radius: 0px;
+    background-color: black;
+    color: #eaeaea;
 }
 
 .btn {
     border-radius: 0;
     border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-transform: uppercase;
 }
 
+.btn:hover {
+    background-color: #eaeaea;
+    color: black;
+}
+
+.bg-c-info.btn:hover, .bg-c-info.btn:focus {
+    color: #F6EB14;
+    background-color: black;
+}
+
+.bg-c-success.btn:hover, .bg-c-success.btn:focus {
+    color: #00FFFF;
+    background-color: black;
+}
+
+.bg-c-warning.btn:hover, .bg-c-warning.btn:focus {
+    color: #EE1D47;
+    background-color: black;
+}
+
+.bg-c-light.btn:hover, .bg-c-light.btn:focus {
+    color: #eaeaea;
+    background-color: black;
+}
+
+.bg-c-dark.btn:hover, .bg-c-dark.btn:focus {
+    color: black;
+    background-color: #eaeaea;
+}
+
+.nav-link {
+    color: #eaeaea;
+}
+
+.bg-c-info {
+    background-color: #F6EB14;
+    color: black;
+}
+
+.bg-c-success {
+    background-color: #00FFFF;
+    color: black;
+}
+
+.bg-c-warning {
+    background-color: #EE1D47;
+    color: black;
+}
+
+.bg-c-light {
+    background-color: #eaeaea;
+    color: black;
+}
+
+.bg-c-dark {
+    background-color: black;
+    color: #eaeaea;
+}
+
+.txt-c-info {
+    color: #F6EB14;
+}
+
+.txt-c-success {
+    color: #00FFFF;
+}
+
+.txt-c-warning {
+    color: #EE1D47;
+}
+
+.txt-c-light {
+    color: #eaeaea;
+}
+
+.txt-c-dark {
+    color: black;
+}

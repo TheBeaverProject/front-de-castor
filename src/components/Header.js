@@ -41,11 +41,11 @@ const Header = () => {
                                 return (<>
                                     <ButtonToolbar>
                                         <ButtonGroup className="mr-4">
-                                            <Button variant="primary"
+                                            <Button className="bg-c-success" data-augmented-ui="br-clip"
                                                 onClick={() => history.push("/register")}>Register</Button>
                                         </ButtonGroup>
                                         <ButtonGroup>
-                                            <Button variant="outline-info"
+                                            <Button className="bg-c-info" data-augmented-ui="br-clip"
                                                 onClick={() => history.push("/login")}>Login</Button>
                                         </ButtonGroup>
                                     </ButtonToolbar>
