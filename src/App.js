@@ -11,7 +11,6 @@ import {FirestoreProvider} from "@react-firebase/firestore";
 //Stylesheets
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "react-datetime/css/react-datetime.css";
-import "../node_modules/augmented-ui/augmented-ui.min.css"
 import "./styles/layout.css"
 import "./styles/cyberpunk.css"
 
