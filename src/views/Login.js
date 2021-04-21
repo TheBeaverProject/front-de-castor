@@ -1,7 +1,7 @@
-import { Button, Col, Container, Form, FormGroup, InputGroup, Row } from "react-bootstrap";
+import {Button, Col, Container, Form, FormGroup, InputGroup, Row} from "react-bootstrap";
 import firebase from "firebase";
-import { useHistory } from "react-router-dom";
-import { useState } from "react";
+import {useHistory} from "react-router-dom";
+import {useState} from "react";
 
 const Login = () => {
 
@@ -17,7 +17,7 @@ const Login = () => {
 
     async function submit() {
         const user = await db.collection("/users/").where("username", "==", userName).get();
-        
+        console.log(user);
         if (user.empty) {
             setUsernameInvalid(true);
         } else {
@@ -27,18 +27,6 @@ const Login = () => {
             }).catch((reason => {
                 setPasswordInvalid(true);
             }));
-        }
-    }
-
-    async function forgotPassword() {
-        const user = await db.collection("/users/").where("username", "==", userName).get();
-
-        if (user.empty) {
-            setUsernameInvalid(true);
-        } else {
-            firebase.auth().sendPasswordResetEmail(user.docs[0].data().email).then(r => {
-                document.getElementById('resetLink').innerHTML = 'An email has been sent to the address you registered with to reset your'
-            })
         }
     }
 
@@ -55,12 +43,11 @@ const Login = () => {
                                 <Form.Group as={Col}>
                                     <InputGroup>
                                         <InputGroup.Prepend>
-                                            <InputGroup.Text style={{borderRadius: '0px'}} className='bg-c-info'>@</InputGroup.Text>
+                                            <InputGroup.Text>@</InputGroup.Text>
                                         </InputGroup.Prepend>
                                         <Form.Control placeholder="Username" type="text" required
-                                            className='bg-c-dark'
-                                            onChange={(r) => setUsername(r.target.value)}
-                                            isInvalid={usernameInvalid} />
+                                                      onChange={(r) => setUsername(r.target.value)}
+                                                      isInvalid={usernameInvalid}/>
                                         <Form.Control.Feedback type="invalid">
                                             This username does not exists.
                                         </Form.Control.Feedback>
@@ -69,23 +56,23 @@ const Login = () => {
                             </Form.Row>
                             <Form.Row>
                                 <FormGroup as={Col}>
-                                        <Form.Control
-                                            type="password" required
-                                            className='bg-c-dark'
-                                            isInvalid={isPasswordInvalid}
-                                            onChange={(r) => {
-                                                setPassword(r.target.value)
-                                            }}
-                                        />
-                                        <Form.Control.Feedback type="invalid">
-                                            Invalid password for this username.
-                                        </Form.Control.Feedback>
+                                    <Form.Label htmlFor="inputPasswordVerify">Password</Form.Label>
+                                    <Form.Control
+                                        type="password"
+                                        isInvalid={isPasswordInvalid}
+                                        onChange={(r) => {
+                                            setPassword(r.target.value)
+                                        }}
+                                    />
+                                    <Form.Control.Feedback type="invalid">
+                                        Invalid password for this username.
+                                    </Form.Control.Feedback>
                                 </FormGroup>
                             </Form.Row>
-                            <Form.Row className='justify-content-center mb-3'>
-                                <a id="resetLink" href="#login" onClick={() => forgotPassword()}>
+                            <Form.Row className="justify-content-end">
+                                <Button variant="link">
                                     Forgot password ?
-                                </a>
+                                </Button>
                             </Form.Row>
                             <Form.Row className="justify-content-center">
                                 <Button variant="primary" onClick={() => submit()}>
