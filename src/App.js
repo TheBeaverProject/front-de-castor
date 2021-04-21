@@ -30,7 +30,7 @@ require('firebase/firestore')
 
 function App() {
     return (
-        <div className="App">
+            <div className="App">
             <FirebaseAuthProvider firebase={firebase} {...firebaseConfig}>
                 <FirestoreProvider {...firebaseConfig} firebase={firebase}>
                     <BrowserRouter>
