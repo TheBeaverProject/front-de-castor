@@ -5,7 +5,7 @@ import { Button, Jumbotron, Image, Col, Row, Container } from "react-bootstrap";
 const Home = () => {
     return (
         <>
-            <Jumbotron className="mb-0 bg-c-success">
+            <Jumbotron className="mb-0 bg-c-primary">
                 <h1>The Beaver Project</h1>
                 <p>
                     General and appealing description of the game.
@@ -19,7 +19,7 @@ const Home = () => {
                 </p>
             </Jumbotron>
             <Image src='https://picsum.photos/3840/1080' width="100%"></Image>
-            <Jumbotron className="mb-0 bg-c-info">
+            <Jumbotron className="mb-0 bg-c-success">
                 <Row>
                     <Col>
                         <h1>First Ground Breaking Feature</h1>

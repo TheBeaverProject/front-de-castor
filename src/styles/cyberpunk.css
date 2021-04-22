@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
 * {
-    --primary: #00FFFF;
-    --secondary: #F6EB14;
+    --primary: #b400ff;
+    --secondary: #333333;
     --success: #00FFFF;
     --info: #F6EB14;
     --warning: #EE1D47;
@@ -73,6 +73,13 @@ p {
     color: black;
 }
 
+/* Button Hover */
+
+.bg-c-primary.btn:hover, .bg-c-primary.btn:focus {
+    color: var(--primary);
+    background-color: var(--dark);
+}
+
 .bg-c-info.btn:hover, .bg-c-info.btn:focus {
     color: var(--info);
     background-color: var(--dark);
@@ -98,9 +105,18 @@ p {
     background-color: var(--light);
 }
 
+/* Navbar */
+
 .nav-link {
     color: var(--light);
     transition: color ease-in 0.2;
+}
+
+/* Background modifiers */
+
+.bg-c-primary {
+    background-color: var(--primary);
+    color: var(--dark);
 }
 
 .bg-c-info {
@@ -126,6 +142,12 @@ p {
 .bg-c-dark {
     background-color: var(--dark);
     color: var(--light);
+}
+
+/* Text Modifier */
+
+.txt-c-primary {
+    color: var(--primary);
 }
 
 .txt-c-info {

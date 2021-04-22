@@ -100,7 +100,7 @@ const NewsPrompt = (props) => {
                             <p style={{overflow: "hidden"}}>
                                 {props.content}
                             </p>
-                            <Button className='bg-c-info' data-augmented-ui="tr-clip" style={{width: "150px"}}
+                            <Button className='bg-c-primary' data-augmented-ui="tr-clip" style={{width: "150px"}}
                                     onClick={() => history.push("/news/" + props.url)}>
                                 Read more...
                             </Button>

@@ -41,7 +41,7 @@ const Header = () => {
                                 return (<>
                                     <ButtonToolbar>
                                         <ButtonGroup className="mr-4">
-                                            <Button className="bg-c-success" data-augmented-ui="br-clip"
+                                            <Button className="bg-c-primary" data-augmented-ui="br-clip"
                                                 onClick={() => history.push("/register")}>Register</Button>
                                         </ButtonGroup>
                                         <ButtonGroup>
