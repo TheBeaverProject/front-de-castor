@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
-* {
+:root {
     --primary: #b400ff;
     --secondary: #333333;
     --success: #00FFFF;
@@ -45,6 +45,14 @@ p {
     font-family: 'Lato', sans-serif;
 }
 
+a {
+    color: var(--light);
+}
+
+a:hover {
+    color: var(--primary);
+}
+
 
 .card, .card-footer, .card-header, .modal-content, .modal-header, .modal-footer {
     background-color: #eaeaea;
@@ -58,6 +66,18 @@ p {
     border-radius: 0px;
     background-color: black;
     color: #eaeaea;
+}
+
+.form-control:focus {
+    border: solid var(--primary) 1px;
+    border-radius: 0px;
+    background-color: black;
+    color: #eaeaea;
+    outline: none;
+}
+
+.rdtPicker {
+    background: black;
 }
 
 .btn {
