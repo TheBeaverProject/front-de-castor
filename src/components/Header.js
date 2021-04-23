@@ -58,7 +58,7 @@ const Header = () => {
                                 return (
                                     <>
                                         <Nav className="mr-4">
-                                            <Nav.Link as={Link} to={`/user/${userName}`}>Logged in
+                                            <Nav.Link as={Link} to={`/user/` + userName}>Logged in
                                                     as {userName}</Nav.Link>
                                             <Nav.Link onClick={() => {
                                                 firebase.auth().signOut().then(r => history.push("/"))
@@ -66,7 +66,7 @@ const Header = () => {
                                                 Logout
                                                 </Nav.Link>
                                         </Nav>
-                                    </>)                                
+                                    </>)
                             }
                         }
                         }

@@ -42,6 +42,10 @@ h5, .h5 {
     text-transform: uppercase;
 }
 
+h6, .h6 {
+    text-transform: uppercase;
+}
+
 p {
     font-family: 'Lato', sans-serif;
 }
@@ -67,8 +71,12 @@ a:hover {
 .card, .card-footer, .card-header, .modal-content, .modal-header, .modal-footer {
     background-color: #eaeaea;
     color: black;
-    border-radius: 0px;
     border: none;
+}
+
+.card-subtitle {
+    margin-top: 16px;
+    margin-bottom: 4px;
 }
 
 .form-control {
