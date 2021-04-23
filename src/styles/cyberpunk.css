@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
-* {
+:root {
     --primary: #b400ff;
     --secondary: #333333;
     --success: #00FFFF;
     --info: #F6EB14;
     --warning: #EE1D47;
     --light: #eaeaea;
+    --gray: #919191;
     --dark: black;
     --font-family-sans-serif: 'Poppins', sans-serif;
 }
@@ -41,16 +42,41 @@ h5, .h5 {
     text-transform: uppercase;
 }
 
+h6, .h6 {
+    text-transform: uppercase;
+}
+
 p {
     font-family: 'Lato', sans-serif;
+}
+
+a {
+    color: var(--light);
+}
+
+/* Selects divs with bg modifier */
+div[class^="bg-c"] a {
+    color: var(--black);
+}
+
+.bg-c-dark a {
+    color: var(--light);
+}
+
+a:hover {
+    color: var(--primary);
 }
 
 
 .card, .card-footer, .card-header, .modal-content, .modal-header, .modal-footer {
     background-color: #eaeaea;
     color: black;
-    border-radius: 0px;
     border: none;
+}
+
+.card-subtitle {
+    margin-top: 16px;
+    margin-bottom: 4px;
 }
 
 .form-control {
@@ -58,6 +84,18 @@ p {
     border-radius: 0px;
     background-color: black;
     color: #eaeaea;
+}
+
+.form-control:focus {
+    border: solid var(--primary) 1px;
+    border-radius: 0px;
+    background-color: black;
+    color: #eaeaea;
+    outline: none;
+}
+
+.rdtPicker {
+    background: black;
 }
 
 .btn {

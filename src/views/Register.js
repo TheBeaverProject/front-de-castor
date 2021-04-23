@@ -1,10 +1,10 @@
-import {Button, Col, Container, Form, FormGroup, InputGroup, Row} from "react-bootstrap";
+import { Button, Col, Container, Form, FormGroup, InputGroup, Row } from "react-bootstrap";
 import Datetime from 'react-datetime';
-import {useState} from "react";
+import { useState } from "react";
 import firebase from "firebase";
-import {isDate, isMoment} from "moment";
-import {userConverter, User} from "../data/User";
-import {useHistory} from "react-router-dom";
+import { isDate, isMoment } from "moment";
+import { userConverter, User } from "../data/User";
+import { useHistory } from "react-router-dom";
 
 const Register = () => {
 
@@ -153,8 +153,11 @@ const Register = () => {
                         <Form.Row>
                             <Form.Group as={Col}>
                                 <Form.Label>Email</Form.Label>
-                                <Form.Control type="email" onChange={(e) => setEmail(e.target.value)}
-                                              placeholder="Enter email" isInvalid={emailInvalid}/>
+                                <Form.Control type="email"
+                                    placeholder="Email" 
+                                    autocomplete="email"
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    isInvalid={emailInvalid} />
                                 <Form.Control.Feedback type="invalid">
                                     {emailErrorMessage}
                                 </Form.Control.Feedback>
@@ -164,11 +167,14 @@ const Register = () => {
                             <Form.Group as={Col}>
                                 <InputGroup>
                                     <InputGroup.Prepend>
-                                        <InputGroup.Text style={{borderRadius: '0px'}} className='bg-c-info'>@</InputGroup.Text>
+                                        <InputGroup.Text style={{ borderRadius: '0px' }} className='bg-c-info'>@</InputGroup.Text>
                                     </InputGroup.Prepend>
-                                    <Form.Control placeholder="Username" type="text" required value={userName}
-                                                  isInvalid={userNameTaken}
-                                                  onChange={(e) => setUsername(e.target.value)}/>
+                                    <Form.Control placeholder="Username"
+                                        type="text" required
+                                        autocomplete="username"
+                                        value={userName}
+                                        isInvalid={userNameTaken}
+                                        onChange={(e) => setUsername(e.target.value)} />
                                     <Form.Control.Feedback type="invalid">
                                         {userNameErrorMessage}
                                     </Form.Control.Feedback>
@@ -179,21 +185,21 @@ const Register = () => {
                             <Form.Group as={Col}>
                                 <Form.Label>Date of Birth</Form.Label>
                                 <Form.Control required
-                                              custom={true}
-                                              as={Datetime}
-                                              timeFormat={false}
-                                              type="date"
-                                              dateFormat={"DD/MM/YYYY"}
-                                              onChange={(r) => {
-                                                  console.log(r)
-                                                  if (isMoment(r)) {
-                                                      setBirthDate(r.toDate());
-                                                      console.log(r.toDate());
-                                                  } else {
-                                                      setBirthDate(r);
-                                                  }
-                                              }}
-                                              isInvalid={birthDateInvalid}/>
+                                    custom={true}
+                                    as={Datetime}
+                                    timeFormat={false}
+                                    type="date"
+                                    autocomplete="bday"
+                                    dateFormat={"DD/MM/YYYY"}
+                                    placeholder="DD/MM/YYY"
+                                    onChange={(r) => {
+                                        if (isMoment(r)) {
+                                            setBirthDate(r.toDate());
+                                        } else {
+                                            setBirthDate(r);
+                                        }
+                                    }}
+                                    isInvalid={birthDateInvalid} />
                                 <Form.Control.Feedback type="invalid">
                                     {birthDateErrorMessage}
                                 </Form.Control.Feedback>
@@ -205,6 +211,7 @@ const Register = () => {
                                 <Form.Label htmlFor="inputPassword">Password</Form.Label>
                                 <Form.Control
                                     type="password"
+                                    autocomplete="new-password"
                                     aria-describedby="passwordHelpBlock"
                                     required
                                     isInvalid={isPasswordInvalid}
@@ -224,6 +231,7 @@ const Register = () => {
                                 <Form.Label htmlFor="inputPasswordVerify">Retype Password</Form.Label>
                                 <Form.Control
                                     type="password"
+                                    autocomplete="new-password"
                                     id="inputPasswordVerify"
                                     required
                                     isInvalid={passwordVerifyInvalid}
@@ -239,12 +247,12 @@ const Register = () => {
 
                         <Form.Group id="formGridCheckbox">
                             <Form.Check required
-                                        isInvalid={isCGUInvalid}
-                                        onChange={(r) => {
-                                            setCGUTicked(r.target.checked)
-                                        }}
-                                        feedback="You need to accept the terms and conditions."
-                                        type="checkbox" label="I agree to the terms and conditions"/>
+                                isInvalid={isCGUInvalid}
+                                onChange={(r) => {
+                                    setCGUTicked(r.target.checked)
+                                }}
+                                feedback="You need to accept the terms and conditions."
+                                type="checkbox" label="I agree to the terms and conditions" />
                         </Form.Group>
 
                         <Form.Row className="justify-content-end">
