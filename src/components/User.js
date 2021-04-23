@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Match from "./Match";
 import Spinner from "./Spinner.js";
 import { FirestoreDocument } from "@react-firebase/firestore";
@@ -16,25 +16,19 @@ const User = (props) => {
 
     data.matchHistory.forEach(async (matchId) => {
         matchEls.push(
-            <FirestoreDocument path={`/matches/${matchId}`} >
+            <FirestoreDocument key={matchId} path={`/matches/${matchId}`} >
                 {r => {
                     if (r.isLoading) {
                         return (<Spinner></Spinner>)
-                    } else {
+                    } else if (r.value !== undefined) {
                         return (
-                            <Row>
-                                <Match data={r.value}></Match>
-                            </Row>
+                            <Match key={r.value.endDate.seconds} focusedUsername={data.username} data={r.value}></Match>
                         )
                     }
                 }}
             </FirestoreDocument>
         )
-
-        console.log(matchEls)
     })
-
-    console.log(matchEls)
 
     return (
         <>
@@ -43,7 +37,7 @@ const User = (props) => {
                 <p>{data.elo}</p>
                 <p>{data.email}</p>
             </Container>
-            <Container className="container-sm">
+            <Container className="container-sm" fluid>
                 <h3>Match History:</h3>
                 {matchEls}
             </Container>

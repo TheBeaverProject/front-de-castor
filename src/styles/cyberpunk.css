@@ -7,6 +7,7 @@
     --info: #F6EB14;
     --warning: #EE1D47;
     --light: #eaeaea;
+    --gray: #919191;
     --dark: black;
     --font-family-sans-serif: 'Poppins', sans-serif;
 }
@@ -46,6 +47,15 @@ p {
 }
 
 a {
+    color: var(--light);
+}
+
+/* Selects divs with bg modifier */
+div[class^="bg-c"] a {
+    color: var(--black);
+}
+
+.bg-c-dark a {
     color: var(--light);
 }
 
