@@ -4,7 +4,7 @@ import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 function Spinner(props) {
     return (<>
-        <Container className="mt-5 d-flex justify-content-center align-items-center" style={{width: '100%', height: '100vh'}}>
+        <Container className="mt-5 d-flex justify-content-center align-items-center" style={{width: '100%', height: '10vh'}}>
             <FontAwesomeIcon icon={faSpinner} spin size="2x"></FontAwesomeIcon>
         </Container>
     </>)
