@@ -76,7 +76,7 @@ const NewsPrompt = (props) => {
                 <Row className="no-gutters">
                     <Col className="col-sm-auto">
                         <Card.Img src={props.imageURL}
-                                  style={{borderTopLeftRadius: '10px', height: '20rem', width: 'auto'}}/>
+                                  style={{height: '20rem', width: 'auto'}}/>
                     </Col>
                     <Col>
                         <div className="card-body-overflow">
