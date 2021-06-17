@@ -81,7 +81,6 @@ export const userConverter = {
     }
 };
 
-
 export const registerNewUser = (username, email, birthdate) => {
     const newUser = new User(username, email, birthdate);
     console.log(newUser);

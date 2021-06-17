@@ -1,36 +1,41 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBox } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-import { Col, Container, Row, Image } from "react-bootstrap";
+import { Jumbotron, Col, Container, Row, Image } from "react-bootstrap";
 import ContactCard from "../components/ContactCard";
 
 const Contact = () => {
 
     return (
         <>
+            <Jumbotron className="bg-c-primary">
+                <Container>
+                    <h1>About Us</h1>
+                </Container>
+            </Jumbotron>
             <Container className="mt-3 mb-3">
                 <h2>History</h2>
                 <p>
-The idea of tackling this S2 project was very exciting for us. We highly anticipate
-this project and are eager to work on it. During the making of our group,
-we naturally went together because our group has a good chemistry and is pretty even.
-We have similar levels in programming, while having different strong advantages.
-When adding them up, our personalities and skills are balanced, making a good
-recipe to the success of our project.
-While discussing the project for the first time, we had a lot of ideas. We had
-a hard time settling with one, but we are now happy about what we came up
-with. Our main general goals were to make a game which looked professional
-and was qualitative. The idea we decided to stuck with came to us when playing
-in a custom game mode on CS:GO, it is therefore genuine and authentic and we
-think that it is pretty special. We now have a very clear idea of how we want to
-make our game, which gives us high confidence and a very good starting point
-to achieve our goals.
-The game we have in mind would be a First Person Shooter. It is the group's
-favorite game type and we have great ideas which could refresh the genre. We
-want a game which we can enjoy playing, and we want to be able to create a
-clean codebase, which will allow us to maintain it in the future. We want to
-give it the quality of a good Indie game, with a realistic economic scheme which
-could ultimately generate earnings.
+                    The idea of tackling this S2 project was very exciting for us. We highly anticipate
+                    this project and are eager to work on it. During the making of our group,
+                    we naturally went together because our group has a good chemistry and is pretty even.
+                    We have similar levels in programming, while having different strong advantages.
+                    When adding them up, our personalities and skills are balanced, making a good
+                    recipe to the success of our project.
+                    While discussing the project for the first time, we had a lot of ideas. We had
+                    a hard time settling with one, but we are now happy about what we came up
+                    with. Our main general goals were to make a game which looked professional
+                    and was qualitative. The idea we decided to stuck with came to us when playing
+                    in a custom game mode on CS:GO, it is therefore genuine and authentic and we
+                    think that it is pretty special. We now have a very clear idea of how we want to
+                    make our game, which gives us high confidence and a very good starting point
+                    to achieve our goals.
+                    The game we have in mind would be a First Person Shooter. It is the group's
+                    favorite game type and we have great ideas which could refresh the genre. We
+                    want a game which we can enjoy playing, and we want to be able to create a
+                    clean codebase, which will allow us to maintain it in the future. We want to
+                    give it the quality of a good Indie game, with a realistic economic scheme which
+                    could ultimately generate earnings.
                 </p>
             </Container>
             <Container className="mt-3 mb-3">
@@ -73,15 +78,15 @@ could ultimately generate earnings.
                                 <a href="https://assetstore.unity.com/packages/tools/network/pun-2-free-119922">Photon Unity Networking</a>
                             </ol>
                             <ol>
-                                <FontAwesomeIcon icon={faBox} className='icon' style={{fontSize: "36pt", verticalAlign: 'middle'}}></FontAwesomeIcon>
+                                <FontAwesomeIcon icon={faBox} className='icon' style={{ fontSize: "36pt", verticalAlign: 'middle' }}></FontAwesomeIcon>
                                 <a href="https://assetstore.unity.com/packages/tools/network/rest-client-for-unity-102501">Rest Client for Unity</a>
                             </ol>
                             <ol>
-                                <FontAwesomeIcon icon={faBox} className='icon' style={{fontSize: "36pt", verticalAlign: 'middle'}}></FontAwesomeIcon>
+                                <FontAwesomeIcon icon={faBox} className='icon' style={{ fontSize: "36pt", verticalAlign: 'middle' }}></FontAwesomeIcon>
                                 <a href="https://assetstore.unity.com/packages/3d/props/exterior/polygon-prototype-low-poly-3d-art-by-synty-137126">POLYGON Prototype Asset Pack</a>
                             </ol>
                             <ol>
-                                <FontAwesomeIcon icon={faBox} className='icon' style={{fontSize: "36pt", verticalAlign: 'middle'}}></FontAwesomeIcon>
+                                <FontAwesomeIcon icon={faBox} className='icon' style={{ fontSize: "36pt", verticalAlign: 'middle' }}></FontAwesomeIcon>
                                 <a href="https://assetstore.unity.com/packages/3d/characters/humanoids/low-poly-modern-soldiers-164028">Low Poly Modern Soldiers</a>
                             </ol>
                         </ul>

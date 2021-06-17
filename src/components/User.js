@@ -34,7 +34,20 @@ const User = (props) => {
     useEffect(() => {
         setMatchEls([<Spinner></Spinner>])
 
-        async function getMatches() {
+        async function PublishStats(stats) {
+            if (data?.stats?.matches === stats.matches) {
+                return;
+            }
+
+            return await firebase.firestore()
+                .collection("users")
+                .doc(props.id)
+                .set({
+                    stats: stats
+                }, { merge: true });
+        }
+
+        async function getMatchesAndStats() {
             let matches = []
             let tstats = {
                 matches: 0,
@@ -51,7 +64,7 @@ const User = (props) => {
                 const doc = await firebase.firestore().collection("matches").doc(matchId).get();
 
                 if (!doc.exists) {
-                    return;
+                    continue;
                 }
 
                 const res = doc.data()
@@ -89,9 +102,10 @@ const User = (props) => {
             }
 
             setStats(tstats)
+            PublishStats(tstats)
             setMatchEls(matches.reverse())
-        } getMatches();
-    }, [data])
+        } getMatchesAndStats();
+    }, [data, props.id])
 
     matchEls.reverse();
 
@@ -108,139 +122,141 @@ const User = (props) => {
         console.log(show)
     }
 
-    return (
-        <>
-            <FirebaseAuthConsumer>
-                {({ isSignedIn, user, providerId }) => {
-                    if (isSignedIn) {
-                        getUserData(user.uid).then(userData => {
-                            setUsername(userData.username);
-                        })
+    return (<>
+        <FirebaseAuthConsumer>
+            {({ isSignedIn, user, providerId }) => {
+                let email;
+                let editImg;
+                
+                if (isSignedIn) {
+                    getUserData(user.uid).then(userData => {
+                        setUsername(userData.username);
+                    })
 
-                        let email;
-                        let editImg;
-                        if (userName === data.username) {
-                            email = (<>
-                                <h6>Email</h6>
-                                <h5>{data.email}</h5>
-                            </>);
+                    
+                    if (userName === data.username) {
+                        email = (<>
+                            <h6>Email</h6>
+                            <h5>{data.email}</h5>
+                        </>);
 
-                            editImg = (<>
-                                <Button className="bg-c-info"
-                                    data-augmented-ui="bl-clip"
-                                    onClick={updateProfilePicture}>
-                                    Update
-                                </Button>
-                            </>)
-                        }
-
-                        return (<>
-                            <Jumbotron className="bg-c-dark" fluid>
-                                <Container>
-                                    <Row>
-                                        <Col>
-                                            <Row>
-                                                <Col lg='4'>
-                                                    <img src={data.iconUrl} alt="profile" style={{ maxWidth: '128px' }} />
-                                                    <div>
-                                                        {editImg}
-                                                    </div>
-                                                </Col>
-                                                <Col>
-                                                    <h4>Player</h4>
-                                                    <h1>{data.username}</h1>
-                                                </Col>
-                                            </Row>
-                                        </Col>
-                                        <Col>
-                                            <h6>Elo</h6>
-                                            <h5>{data.elo}</h5>
-                                            <h6>Level</h6>
-                                            <h5>{data.level}</h5>
-                                            {email}
-                                        </Col>
-                                    </Row>
-                                </Container>
-                            </Jumbotron>
+                        editImg = (<>
+                            <Button className="bg-c-info"
+                                data-augmented-ui="bl-clip"
+                                onClick={updateProfilePicture}>
+                                Modify
+                            </Button>
                         </>)
                     }
-                }}
-            </FirebaseAuthConsumer>
-            <Jumbotron className="bg-c-info mb-0">
-                <Container>
-                    <h2>Statistics</h2>
-                    <Row>
-                        <Col>
-                            <h6>Winrate</h6>
-                            <h5>{stats.matches === 0 ? 0 : (stats.win / stats.matches) * 100}%</h5>
-                        </Col>
-                        <Col>
-                            <h6>Matches</h6>
-                            <h5>{stats.matches}</h5>
-                        </Col>
-                        <Col>
-                            <h6>Win</h6>
-                            <h5>{stats.win}</h5>
-                        </Col>
-                        <Col>
-                            <h6>Loss</h6>
-                            <h5>{stats.loss}</h5>
-                        </Col>
-                        <Col>
-                            <h6>KDA</h6>
-                            <h5>{stats.kills}/{stats.deaths}/{stats.assists}</h5>
-                        </Col>
-                    </Row>
-                </Container>
-            </Jumbotron>
-            <Jumbotron className="bg-c-primary" fluid>
-                <Container>
-                    <h2>Match History:</h2>
-                    {matchEls}
-                </Container>
-            </Jumbotron>
-            <Modal data-augmented-ui="tr-clip" show={show} onHide={handleClose}>
-                <FirestoreMutation type="update" path={`/users/${props.id}`}>
-                    {({ runMutation }) => {
-                        function handleSubmit() {
-                            console.log(data.iconUrl)
-                            runMutation({
-                                iconUrl: data.iconUrl
-                            }).then(res => {
-                                console.log("Ran mutation ", res);
-                                handleClose()
-                            })
-                        }
-                        return (
-                            <>
-                                <Modal.Header closeButton className='bg-c-info'>
-                                    <Modal.Title>Update your profile picture</Modal.Title>
-                                </Modal.Header>
-                                <Form onSubmit={handleSubmit}>
-                                    <Modal.Body className='bg-c-info'>
-                                        <Form.Control type="input"
-                                            placeholder="Profile Picture URL"
-                                            autoComplete="photo"
-                                            onChange={(e) => {
-                                                data.iconUrl = e.target.value
-                                            }} />
-                                    </Modal.Body>
-                                    <Modal.Footer className='bg-c-info'>
-                                        <Button className='bg-c-primary' data-augmented-ui="tr-clip" onClick={handleSubmit}>
-                                            Submit
-                                        </Button>
-                                        <Button className='bg-c-warning' data-augmented-ui="tr-clip" onClick={handleClose}>
-                                            Close
-                                        </Button>
-                                    </Modal.Footer>
-                                </Form>
+                }
 
-                            </>
-                        );
-                    }}
-                </FirestoreMutation>
-            </Modal>
-        </>
+                return (<>
+                    <Jumbotron className="bg-c-dark" fluid>
+                        <Container>
+                            <Row>
+                                <Col>
+                                    <Row>
+                                        <Col md="auto">
+                                            <img src={data.iconUrl} alt="profile" style={{ maxWidth: '128px' }} />
+                                            <div>
+                                                {editImg}
+                                            </div>
+                                        </Col>
+                                        <Col>
+                                            <h4>Player</h4>
+                                            <h1>{data.username}</h1>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                                <Col>
+                                    <h6>Elo</h6>
+                                    <h5>{data.elo}</h5>
+                                    <h6>Level</h6>
+                                    <h5>{data.level}</h5>
+                                    {email}
+                                </Col>
+                            </Row>
+                        </Container>
+                    </Jumbotron>
+                </>)
+
+            }}
+        </FirebaseAuthConsumer>
+        <Jumbotron className="bg-c-info mb-0">
+            <Container>
+                <h2>Statistics</h2>
+                <Row>
+                    <Col>
+                        <h6>Winrate</h6>
+                        <h5>{stats.matches === 0 ? 0 : (stats.win / stats.matches) * 100}%</h5>
+                    </Col>
+                    <Col>
+                        <h6>Matches</h6>
+                        <h5>{stats.matches}</h5>
+                    </Col>
+                    <Col>
+                        <h6>Win</h6>
+                        <h5>{stats.win}</h5>
+                    </Col>
+                    <Col>
+                        <h6>Loss</h6>
+                        <h5>{stats.loss}</h5>
+                    </Col>
+                    <Col>
+                        <h6>KDA</h6>
+                        <h5>{stats.kills}/{stats.deaths}/{stats.assists}</h5>
+                    </Col>
+                </Row>
+            </Container>
+        </Jumbotron>
+        <Jumbotron className="bg-c-primary" fluid>
+            <Container>
+                <h2>Match History:</h2>
+                {matchEls}
+            </Container>
+        </Jumbotron>
+        <Modal data-augmented-ui="tr-clip" show={show} onHide={handleClose}>
+            <FirestoreMutation type="update" path={`/users/${props.id}`}>
+                {({ runMutation }) => {
+                    function handleSubmit() {
+                        console.log(data.iconUrl)
+                        runMutation({
+                            iconUrl: data.iconUrl
+                        }).then(res => {
+                            console.log("Ran mutation ", res);
+                            handleClose()
+                        })
+                    }
+                    return (
+                        <>
+                            <Modal.Header closeButton className='bg-c-info'>
+                                <Modal.Title>Update your profile picture</Modal.Title>
+                            </Modal.Header>
+                            <Form onSubmit={handleSubmit}>
+                                <Modal.Body className='bg-c-info'>
+                                    <Form.Control type="input"
+                                        placeholder="Profile Picture URL"
+                                        autoComplete="photo"
+                                        onChange={(e) => {
+                                            data.iconUrl = e.target.value
+                                        }} />
+                                </Modal.Body>
+                                <Modal.Footer className='bg-c-info'>
+                                    <Button className='bg-c-primary' data-augmented-ui="tr-clip" onClick={handleSubmit}>
+                                        Submit
+                                    </Button>
+                                    <Button className='bg-c-warning' data-augmented-ui="tr-clip" onClick={handleClose}>
+                                        Close
+                                    </Button>
+                                </Modal.Footer>
+                            </Form>
+
+                        </>
+                    );
+                }}
+            </FirestoreMutation>
+        </Modal>
+    </>
     );
 }
 

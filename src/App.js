@@ -26,6 +26,8 @@ import Login from "./views/Login";
 import Downloads from "./views/Downloads";
 import NewsArticleView from "./views/NewsArticleView";
 import UserView from "./views/UserView";
+import Leaderboard from "./views/Leaderboard";
+import Ternier from "./views/Ternier";
 
 require('firebase/auth')
 require('firebase/firestore')
@@ -45,6 +47,8 @@ function App() {
                             <AppRoute path="/register" exact component={Register} layout={DefaultLayout}/>
                             <AppRoute path="/login" exact component={Login} layout={DefaultLayout}/>
                             <AppRoute path="/downloads" exact component={Downloads} layout={DefaultLayout}/>
+                            <AppRoute path="/leaderboard" exact component={Leaderboard} layout={DefaultLayout}/>
+                            <AppRoute path="/Ternier" component={Ternier} layout={DefaultLayout}/>
                             <AppRoute path="/user/:username" component={(props) => <UserView {...props}/>} layout={DefaultLayout}/>
                             <Redirect from="*" to="/404"/>
                         </Switch>

@@ -1,14 +1,14 @@
-import {FirestoreCollection} from "@react-firebase/firestore";
+import { FirestoreCollection } from "@react-firebase/firestore";
 import NewsPrompt from "../components/NewsPrompt";
 import Spinner from "../components/Spinner.js";
-import {Container} from "react-bootstrap";
+import {  Container } from "react-bootstrap";
 
 const News = () => {
 
     return (
         <>
             <Container className="mb-5">
-                <FirestoreCollection path="/news/" orderBy={[{field: 'publishDate', type: 'desc'}]}>
+                <FirestoreCollection path="/news/" orderBy={[{ field: 'publishDate', type: 'desc' }]}>
                     {
                         d => {
                             if (d.isLoading) {
@@ -22,10 +22,10 @@ const News = () => {
                                     console.log(article)
                                     newsList.push(
                                         <NewsPrompt key={d.ids[i]} author={article.author} content={article.content}
-                                                    likes={article.likes}
-                                                    title={article.title} imageURL={article.previewImage}
-                                                    url={article.url} publishDate={article.publishDate.seconds}
-                                                    documentId={d.ids[i]}/>
+                                            likes={article.likes}
+                                            title={article.title} imageURL={article.previewImage}
+                                            url={article.url} publishDate={article.publishDate.seconds}
+                                            documentId={d.ids[i]} />
                                     );
                                 }
                                 return newsList;
