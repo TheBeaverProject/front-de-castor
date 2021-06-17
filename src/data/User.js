@@ -1,5 +1,3 @@
-import firebase from 'firebase';
-
 export const Status = {
     BANNED: 0,
     ADMIN: 1,
