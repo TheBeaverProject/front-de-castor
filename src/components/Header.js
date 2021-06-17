@@ -34,6 +34,7 @@ const Header = () => {
                         <Nav.Link as={Link} to="/downloads">Downloads</Nav.Link>
                         <Nav.Link as={Link} to="/news">News</Nav.Link>
                         <Nav.Link as={Link} to="/about">About</Nav.Link>
+                        <Nav.Link as={Link} to="/leaderboard">Leaderboard</Nav.Link>
                     </Nav>
                     <FirebaseAuthConsumer>
                         {({ isSignedIn, user, providerId }) => {

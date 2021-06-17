@@ -1,3 +1,5 @@
+import firebase from 'firebase';
+
 export const Status = {
     BANNED: 0,
     ADMIN: 1,
@@ -80,7 +82,6 @@ export const userConverter = {
         );
     }
 };
-
 
 export const registerNewUser = (username, email, birthdate) => {
     const newUser = new User(username, email, birthdate);
