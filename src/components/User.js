@@ -1,13 +1,12 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
-import { Container, Col, Jumbotron, Row } from "react-bootstrap";
+import { Container, Col, Jumbotron, Row, Form } from "react-bootstrap";
 import { TeamMatch, FFAMatch } from "./Match";
 import Spinner from "./Spinner.js";
-import { FirestoreDocument } from "@react-firebase/firestore";
 import { FirebaseAuthConsumer } from "@react-firebase/auth";
+import { FirestoreMutation } from "@react-firebase/firestore";
 import firebase from "firebase";
-import { relativeTimeRounding } from "moment";
-
+import { Button, Modal } from 'react-bootstrap';
 
 
 const User = (props) => {
@@ -17,6 +16,7 @@ const User = (props) => {
     };
 
     const data = props.data;
+    data.iconUrl = data.iconUrl ? data.iconUrl : '/logo192.png';
 
     const [userName, setUsername] = useState("");
 
@@ -99,42 +99,73 @@ const User = (props) => {
         return (await firebase.firestore().collection("/users/").doc(uid).get()).data();
     }
 
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false)
+    const handleShow = () => setShow(true);
+    function updateProfilePicture() {
+        console.log('showing pfp modal')
+        handleShow()
+        console.log(show)
+    }
+
     return (
         <>
-            <Jumbotron className="bg-c-dark" fluid>
-                <Container>
-                    <Row>
-                        <Col>
-                            <h4>Player</h4>
-                            <h1>{data.username}</h1>
-                        </Col>
-                        <Col>
-                            <h6>Elo</h6>
-                            <h5>{data.elo}</h5>
-                            <h6>Level</h6>
-                            <h5>{data.level}</h5>
-                            <FirebaseAuthConsumer>
-                                {({ isSignedIn, user, providerId }) => {
-                                    if (isSignedIn) {
-                                        getUserData(user.uid).then(userData => {
-                                            setUsername(userData.username);
-                                        })
+            <FirebaseAuthConsumer>
+                {({ isSignedIn, user, providerId }) => {
+                    if (isSignedIn) {
+                        getUserData(user.uid).then(userData => {
+                            setUsername(userData.username);
+                        })
 
-                                        if (userName === data.username) {
-                                            return (
-                                                <>
-                                                    <h6>Email</h6>
-                                                    <h5>{data.email}</h5>
-                                                </>
-                                            )
-                                        }
-                                    }
-                                }}
-                            </FirebaseAuthConsumer>
-                        </Col>
-                    </Row>
-                </Container>
-            </Jumbotron>
+                        let email;
+                        let editImg;
+                        if (userName === data.username) {
+                            email = (<>
+                                <h6>Email</h6>
+                                <h5>{data.email}</h5>
+                            </>);
+
+                            editImg = (<>
+                                <Button className="bg-c-info"
+                                    data-augmented-ui="bl-clip"
+                                    onClick={updateProfilePicture}>
+                                    Update
+                                </Button>
+                            </>)
+                        }
+
+                        return (<>
+                            <Jumbotron className="bg-c-dark" fluid>
+                                <Container>
+                                    <Row>
+                                        <Col>
+                                            <Row>
+                                                <Col lg='4'>
+                                                    <img src={data.iconUrl} alt="profile" style={{ maxWidth: '128px' }} />
+                                                    <div>
+                                                        {editImg}
+                                                    </div>
+                                                </Col>
+                                                <Col>
+                                                    <h4>Player</h4>
+                                                    <h1>{data.username}</h1>
+                                                </Col>
+                                            </Row>
+                                        </Col>
+                                        <Col>
+                                            <h6>Elo</h6>
+                                            <h5>{data.elo}</h5>
+                                            <h6>Level</h6>
+                                            <h5>{data.level}</h5>
+                                            {email}
+                                        </Col>
+                                    </Row>
+                                </Container>
+                            </Jumbotron>
+                        </>)
+                    }
+                }}
+            </FirebaseAuthConsumer>
             <Jumbotron className="bg-c-info mb-0">
                 <Container>
                     <h2>Statistics</h2>
@@ -168,6 +199,47 @@ const User = (props) => {
                     {matchEls}
                 </Container>
             </Jumbotron>
+            <Modal data-augmented-ui="tr-clip" show={show} onHide={handleClose}>
+                <FirestoreMutation type="update" path={`/users/${props.id}`}>
+                    {({ runMutation }) => {
+                        function handleSubmit() {
+                            console.log(data.iconUrl)
+                            runMutation({
+                                iconUrl: data.iconUrl
+                            }).then(res => {
+                                console.log("Ran mutation ", res);
+                                handleClose()
+                            })
+                        }
+                        return (
+                            <>
+                                <Modal.Header closeButton className='bg-c-info'>
+                                    <Modal.Title>Update your profile picture</Modal.Title>
+                                </Modal.Header>
+                                <Form onSubmit={handleSubmit}>
+                                    <Modal.Body className='bg-c-info'>
+                                        <Form.Control type="input"
+                                            placeholder="Profile Picture URL"
+                                            autoComplete="photo"
+                                            onChange={(e) => {
+                                                data.iconUrl = e.target.value
+                                            }} />
+                                    </Modal.Body>
+                                    <Modal.Footer className='bg-c-info'>
+                                        <Button className='bg-c-primary' data-augmented-ui="tr-clip" onClick={handleSubmit}>
+                                            Submit
+                                        </Button>
+                                        <Button className='bg-c-warning' data-augmented-ui="tr-clip" onClick={handleClose}>
+                                            Close
+                                        </Button>
+                                    </Modal.Footer>
+                                </Form>
+
+                            </>
+                        );
+                    }}
+                </FirestoreMutation>
+            </Modal>
         </>
     );
 }

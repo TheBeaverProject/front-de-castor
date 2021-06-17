@@ -9,7 +9,7 @@ const Home = () => {
                 <h1>The Beaver Project</h1>
                 <p>
                     General and appealing description of the game.
-                    </p>
+                </p>
                 <p>
                     <Link to="/downloads">
                         <Button size="lg" className="bg-c-dark" data-augmented-ui="br-clip">
