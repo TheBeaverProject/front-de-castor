@@ -9,7 +9,9 @@ const Contact = () => {
     return (
         <>
             <Jumbotron className="bg-c-primary">
-                <h1>About Us</h1>
+                <Container>
+                    <h1>About Us</h1>
+                </Container>
             </Jumbotron>
             <Container className="mt-3 mb-3">
                 <h2>History</h2>

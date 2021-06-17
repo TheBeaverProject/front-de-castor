@@ -39,14 +39,14 @@ const Leaderboard = () => {
     }, [])
 
     return (<>
-        <Jumbotron className="bg-c-dark" fluid>
+        <Jumbotron className="bg-c-info" fluid>
             <Container>
                 <h1>Leaderboard</h1>
                 <h4>Top 20</h4>
             </Container>
         </Jumbotron>
-        <Jumbotron className="bg-c-primary" fluid>
-            <Container>
+        <Jumbotron className="bg-c-dark" fluid>
+            <Container className="bg-c-primary">
                 <div className="leaderboard-container">
                     <Row className="leaderboard-row">
                         <Col xs={1} className="leaderboard-col leaderboard-header">
