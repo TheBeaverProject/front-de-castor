@@ -20,7 +20,7 @@ const UserView = (props) => {
             }
     
             q.forEach(function (doc) {
-                setUser(<User data={doc.data()} />);
+                setUser(<User data={doc.data()} id={doc.id} />);
             });
         }
 

@@ -37,7 +37,7 @@ const Login = () => {
             setUsernameInvalid(true);
         } else {
             firebase.auth().sendPasswordResetEmail(user.docs[0].data().email).then(r => {
-                document.getElementById('resetLink').innerHTML = 'An email has been sent to the address you registered with to reset your'
+                document.getElementById('resetLink').innerHTML = 'An email has been sent to the address you registered with to reset your password.'
             })
         }
     }
