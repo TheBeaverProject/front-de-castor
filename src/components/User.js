@@ -125,13 +125,15 @@ const User = (props) => {
     return (<>
         <FirebaseAuthConsumer>
             {({ isSignedIn, user, providerId }) => {
+                let email;
+                let editImg;
+                
                 if (isSignedIn) {
                     getUserData(user.uid).then(userData => {
                         setUsername(userData.username);
                     })
 
-                    let email;
-                    let editImg;
+                    
                     if (userName === data.username) {
                         email = (<>
                             <h6>Email</h6>
@@ -146,37 +148,38 @@ const User = (props) => {
                             </Button>
                         </>)
                     }
-
-                    return (<>
-                        <Jumbotron className="bg-c-dark" fluid>
-                            <Container>
-                                <Row>
-                                    <Col>
-                                        <Row>
-                                            <Col md="auto">
-                                                <img src={data.iconUrl} alt="profile" style={{ maxWidth: '128px' }} />
-                                                <div>
-                                                    {editImg}
-                                                </div>
-                                            </Col>
-                                            <Col>
-                                                <h4>Player</h4>
-                                                <h1>{data.username}</h1>
-                                            </Col>
-                                        </Row>
-                                    </Col>
-                                    <Col>
-                                        <h6>Elo</h6>
-                                        <h5>{data.elo}</h5>
-                                        <h6>Level</h6>
-                                        <h5>{data.level}</h5>
-                                        {email}
-                                    </Col>
-                                </Row>
-                            </Container>
-                        </Jumbotron>
-                    </>)
                 }
+
+                return (<>
+                    <Jumbotron className="bg-c-dark" fluid>
+                        <Container>
+                            <Row>
+                                <Col>
+                                    <Row>
+                                        <Col md="auto">
+                                            <img src={data.iconUrl} alt="profile" style={{ maxWidth: '128px' }} />
+                                            <div>
+                                                {editImg}
+                                            </div>
+                                        </Col>
+                                        <Col>
+                                            <h4>Player</h4>
+                                            <h1>{data.username}</h1>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                                <Col>
+                                    <h6>Elo</h6>
+                                    <h5>{data.elo}</h5>
+                                    <h6>Level</h6>
+                                    <h5>{data.level}</h5>
+                                    {email}
+                                </Col>
+                            </Row>
+                        </Container>
+                    </Jumbotron>
+                </>)
+
             }}
         </FirebaseAuthConsumer>
         <Jumbotron className="bg-c-info mb-0">
