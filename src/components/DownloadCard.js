@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Card, Badge } from "react-bootstrap";
+import { Card, Badge } from "react-bootstrap";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 
 function DownloadCard(props) {
@@ -16,20 +16,21 @@ function DownloadCard(props) {
 
     return (
         <>
-            <Card data-augmented-ui="br-clip" className={ props.isDefense ? "mt-5 bg-c-success" :  props.isFirst ? "mt-5 bg-c-info" : "mt-5 bg-c-light" }>
+            <Card data-augmented-ui="br-clip" className={props.isDefense ? "mt-5 bg-c-success" : props.isFirst ? "mt-5 bg-c-info" : "mt-5 bg-c-light"}>
                 <Card.Body>
-                    <Card.Title>{ props.version } { props.isDefense ? <Badge variant="info" className="bg-c-warning">Defense Handout</Badge> : '' } { props.isFirst ? <Badge variant="primary" className="bg-c-primary">Latest</Badge> : '' }</Card.Title>
+                    <Card.Title>{props.version} {props.isDefense ? <Badge variant="info" className="bg-c-warning">Defense Handout</Badge> : ''} {props.isFirst ? <Badge variant="primary" className="bg-c-primary">Latest</Badge> : ''}</Card.Title>
                     <Card.Text>
-                        { props.description }
+                        {props.description}
                         <br></br>
-                        <i>{ props.date }</i>
+                        <i>{props.date}</i>
                     </Card.Text>
-                    <Button
-                        className="bg-c-dark"
+                    <a className="bg-c-dark btn btn-primary"
                         data-augmented-ui="br-clip"
-                        onClick={() => window.open(props.downloadLink)}>
+                        download={`${props.version.replace(" ", "-")}-setup`}
+                        target={props.isDefense ? "_blank" : ""} rel="noreferrer"
+                        href={props.downloadLink}>
                         <FontAwesomeIcon icon={faDownload}></FontAwesomeIcon> Download
-                    </Button>
+                    </a>
                 </Card.Body>
             </Card>
         </>
