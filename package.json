@@ -23,6 +23,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.5.0",
     "react-bootstrap": "^1.4.3",
+    "react-bootstrap-typeahead": "^5.1.4",
     "react-datetime": "^3.0.4",
     "react-dom": "^16.5.0",
     "react-lines-ellipsis": "^0.14.1",
