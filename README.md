@@ -1,16 +1,18 @@
 # Le front du castor
 
-Partie front-end du "website" pour les iencli by francouille
+Partie front-end du "website" by francouille & Tagueo
 
-# Usage
+Accessible at https://thebeaverproject.tk
 
-  juste do the npm thing  
+# Dev
+
+juste do the npm thing  
   
-  `npm install`  
+`npm install`  
   
-  `npm run start` when coding (REPL)
+`npm run start` when coding (REPL)
   
-  `npm run build` when you're done and product is in production stage  
+`npm run build` when you're done and product is in production stage  
  
-    
+
 
