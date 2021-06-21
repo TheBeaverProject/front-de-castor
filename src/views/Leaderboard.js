@@ -134,8 +134,6 @@ const LeaderboardCard = (props) => {
                 }
             }
 
-            console.log(`Publishing stats for ${userData.username}:`, tstats)
-
             try {
                 await firebase.firestore()
                     .collection("users")
