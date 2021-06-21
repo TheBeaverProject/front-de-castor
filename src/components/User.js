@@ -70,11 +70,11 @@ const User = (props) => {
                 const res = doc.data()
 
                 switch (res.type) {
-                    case "TeamDeathMatch":
-                    case "QuickTeamDeathMatch":
+                    case "CompetitiveMatch":
+                    case "QuickTeamMatch":
                         matches.push(<TeamMatch key={i} focusedUsername={data.username} data={res}></TeamMatch>)
                         break;
-                    case "FFADeathMatch":
+                    case "DeathMatch":
                         matches.push(<FFAMatch key={i} focusedUsername={data.username} data={res}></FFAMatch>)
                         break;
                     default:
