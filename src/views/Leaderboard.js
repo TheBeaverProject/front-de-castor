@@ -88,11 +88,6 @@ const LeaderboardCard = (props) => {
 
     useEffect(() => {
         const getAndPublishStats = async (userData) => {
-            if (userData?.stats) {
-                setStats(userData.stats)
-                return;
-            }
-
             let tstats = {
                 matches: 0,
                 win: 0,
@@ -112,6 +107,10 @@ const LeaderboardCard = (props) => {
                 }
 
                 const res = doc.data()
+
+                if (!["CompetitiveMatch", "QuickTeamMatch", "DeathMatch"].includes(res.type)) {
+                    continue;
+                }
 
                 tstats.matches++;
 
@@ -134,6 +133,11 @@ const LeaderboardCard = (props) => {
                 }
             }
 
+            if (userData?.stats.matches === tstats.matches) {
+                setStats(userData.stats)
+                return;
+            }
+
             try {
                 await firebase.firestore()
                     .collection("users")
@@ -149,7 +153,7 @@ const LeaderboardCard = (props) => {
         }; getAndPublishStats(user);
     }, [user])
 
-    const getWinRate = (matches, win) => matches === 0 ? 0 : (win / matches) * 100;
+    const getWinRate = (matches, win) => Math.round(matches === 0 ? 0 : (win / matches) * 100);
 
     const isEven = props.rank % 2 === 0;
 
