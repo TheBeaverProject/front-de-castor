@@ -1,7 +1,7 @@
 import React from "react";
 import {Nav, Navbar} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faInstagram, faTwitter} from "@fortawesome/free-brands-svg-icons";
+import {faGithub} from "@fortawesome/free-brands-svg-icons";
 import {faHeart} from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
@@ -14,8 +14,7 @@ const Footer = () => {
                 </Navbar.Text>
             </Nav>
             <Navbar.Collapse className="justify-content-end">
-                <Nav.Link href="https://twitter.com"><FontAwesomeIcon icon={faTwitter}/></Nav.Link>
-                <Nav.Link href="https://instagram.com"><FontAwesomeIcon icon={faInstagram}/></Nav.Link>
+                <Nav.Link href="https://github.com/TheBeaverProject/"><FontAwesomeIcon icon={faGithub}/></Nav.Link>
             </Navbar.Collapse>
         </Navbar>
     )
