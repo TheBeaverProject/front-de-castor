@@ -20,7 +20,7 @@ const Home = () => {
                 </p>
             </Jumbotron>
             <video style={{height: '70vh'}} 
-                src="https://firebasestorage.googleapis.com/v0/b/beaver-ea0ea.appspot.com/o/media%2FTrailer_1.mp4?alt=media&token=e61077d9-9fb8-4971-87f3-37ab32506914"
+                src="https://firebasestorage.googleapis.com/v0/b/beaver-ea0ea.appspot.com/o/media%2FTrailer_FINAL.mp4?alt=media&token=bbef1129-a559-4a2d-817e-38941754f26a"
                 controls={true}
                 autoPlay={true}
                 muted={true}></video>
