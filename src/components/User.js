@@ -69,34 +69,40 @@ const User = (props) => {
 
                 const res = doc.data()
 
+                let valid = false;
+
                 switch (res.type) {
                     case "CompetitiveMatch":
                     case "QuickTeamMatch":
-                        matches.push(<TeamMatch key={i} focusedUsername={data.username} data={res}></TeamMatch>)
+                        matches.push(<TeamMatch key={i} focusedUsername={data.username} data={res}></TeamMatch>);
+                        valid = true;
                         break;
                     case "DeathMatch":
-                        matches.push(<FFAMatch key={i} focusedUsername={data.username} data={res}></FFAMatch>)
+                        matches.push(<FFAMatch key={i} focusedUsername={data.username} data={res}></FFAMatch>);
+                        valid = true;
                         break;
                     default:
                         break;
                 }
 
-                tstats.matches++;
-                let p = res.players.find(p => p.name === data.username)
+                if (valid) {
+                    tstats.matches++;
+                    let p = res.players.find(p => p.name === data.username)
 
-                if (p) {
-                    tstats.kills += p.kills;
-                    tstats.deaths += p.deaths;
-                    tstats.assists += p.assists;
+                    if (p) {
+                        tstats.kills += p.kills;
+                        tstats.deaths += p.deaths;
+                        tstats.assists += p.assists;
 
-                    if (p.team && p.team === res.winner) {
-                        tstats.win++;
-                    } else if (p.team) {
-                        tstats.loss++;
-                    } else if (data.username === res.winner) {
-                        tstats.win++;
-                    } else {
-                        tstats.loss++;
+                        if (p.team && parseInt(p.team) === parseInt(res.winner)) {
+                            tstats.win++;
+                        } else if (p.team) {
+                            tstats.loss++;
+                        } else if (data.username === res.winner) {
+                            tstats.win++;
+                        } else {
+                            tstats.loss++;
+                        }
                     }
                 }
             }
@@ -106,8 +112,6 @@ const User = (props) => {
             setMatchEls(matches.reverse())
         } getMatchesAndStats();
     }, [data, props.id])
-
-    matchEls.reverse();
 
     async function getUserData(uid) {
         return (await firebase.firestore().collection("/users/").doc(uid).get()).data();
@@ -127,13 +131,13 @@ const User = (props) => {
             {({ isSignedIn, user, providerId }) => {
                 let email;
                 let editImg;
-                
+
                 if (isSignedIn) {
                     getUserData(user.uid).then(userData => {
                         setUsername(userData.username);
                     })
 
-                    
+
                     if (userName === data.username) {
                         email = (<>
                             <h6>Email</h6>
